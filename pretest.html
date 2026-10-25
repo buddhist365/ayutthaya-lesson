@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>แบบทดสอบก่อนเรียน</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600&family=Chonburi&family=IBM+Plex+Sans+Thai+Looped:wght@400;600&family=Pridi:wght@500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <section class="banner">
+    <div class="banner-inner">
+        <span class="eyebrow">ก่อนเรียน</span>
+        <h1>แบบทดสอบก่อนเรียน</h1>
+        <p class="lead">ปรนัย 10 ข้อ เลือกคำตอบที่ถูกที่สุด ไม่ต้องกังวลเรื่องคะแนน เพราะแบบทดสอบนี้ใช้วัดความรู้พื้นฐานก่อนเรียน</p>
+    </div>
+  </section>
+
+  <main>
+
+    <div id="quiz"></div>
+  </main>
+
+  <nav id="pager"></nav>
+  <footer id="site-footer"></footer>
+  <script src="js/main.js"></script>
+  <script src="js/quiz.js"></script>
+  <script>renderQuiz(document.getElementById("quiz"), "pre");</script>
+</body>
+</html>

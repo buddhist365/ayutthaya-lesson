@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>แบบทดสอบหลังเรียน</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600&family=Chonburi&family=IBM+Plex+Sans+Thai+Looped:wght@400;600&family=Pridi:wght@500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <section class="banner">
+    <div class="banner-inner">
+        <span class="eyebrow">หลังเรียน</span>
+        <h1>แบบทดสอบหลังเรียน</h1>
+        <p class="lead">ปรนัย 10 ข้อ เกณฑ์ผ่านร้อยละ 70 (7 ข้อขึ้นไป) ถ้าเคยทำแบบทดสอบก่อนเรียนบนเครื่องนี้ ระบบจะแสดงพัฒนาการให้ดู</p>
+    </div>
+  </section>
+
+  <main>
+
+    <div id="quiz"></div>
+  </main>
+
+  <nav id="pager"></nav>
+  <footer id="site-footer"></footer>
+  <script src="js/main.js"></script>
+  <script src="js/quiz.js"></script>
+  <script>renderQuiz(document.getElementById("quiz"), "post");</script>
+</body>
+</html>

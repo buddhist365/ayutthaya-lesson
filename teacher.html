@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>คู่มือสำหรับครู</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600&family=Chonburi&family=IBM+Plex+Sans+Thai+Looped:wght@400;600&family=Pridi:wght@500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .worksheet .line { border-bottom: 1px dotted var(--muted); height: 2em; }
+    .mind { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .mind div { border: 1px solid var(--line); border-radius: 10px; min-height: 120px; padding: 8px; }
+    @media (max-width: 560px) { .mind { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <section class="banner">
+    <div class="banner-inner">
+        <span class="eyebrow">สำหรับครู</span>
+        <h1>คู่มือสำหรับครู</h1>
+    </div>
+  </section>
+
+  <main>
+    <p class="no-print">
+      <a class="btn ghost" href="#plan">แผนการสอน</a>
+      <a class="btn ghost" href="#scores">เก็บคะแนน</a>
+      <a class="btn ghost" href="#key">เฉลยแบบทดสอบ</a>
+      <a class="btn ghost" href="#worksheet">ใบงาน</a>
+    </p>
+
+    <h2 id="plan">แผนการจัดการเรียนรู้ (2 คาบ)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ขั้น</th><th>เวลา</th><th>กิจกรรม</th><th>หน้าเว็บที่ใช้</th></tr></thead>
+        <tbody>
+          <tr><td colspan="4"><b>คาบที่ 1</b></td></tr>
+          <tr><td>นำเข้าสู่บทเรียน</td><td>10 นาที</td><td>ถามคำถามชวนคิดเรื่องการเลือกที่ตั้งเมืองหลวง</td><td>intro.html</td></tr>
+          <tr><td>ทดสอบก่อนเรียน</td><td>10 นาที</td><td>นักเรียนทำแบบทดสอบด้วยมือถือหรือคอมพิวเตอร์</td><td>pretest.html</td></tr>
+          <tr><td>สอน</td><td>25 นาที</td><td>บทที่ 1–2: แผนที่แคว้นและเส้นเวลาการสถาปนา</td><td>lesson1–2.html</td></tr>
+          <tr><td>สรุป</td><td>5 นาที</td><td>ตอบคำถามตรวจสอบความเข้าใจท้ายบท</td><td>—</td></tr>
+          <tr><td colspan="4"><b>คาบที่ 2</b></td></tr>
+          <tr><td>ทบทวน</td><td>5 นาที</td><td>ทบทวนบทที่ 1–2</td><td>—</td></tr>
+          <tr><td>สอน</td><td>20 นาที</td><td>บทที่ 3–5 แบ่งกลุ่มอภิปรายแนวคิดที่มาของพระเจ้าอู่ทอง</td><td>lesson3–5.html</td></tr>
+          <tr><td>ปฏิบัติ</td><td>15 นาที</td><td>ทำกิจกรรมเชิงโต้ตอบ 4 ข้อ และใบงานผังความคิด</td><td>activities.html</td></tr>
+          <tr><td>ประเมิน</td><td>10 นาที</td><td>ทดสอบหลังเรียน แล้วเปรียบเทียบกับคะแนนก่อนเรียน</td><td>posttest.html</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>การวัดและประเมินผล</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>สิ่งที่ประเมิน</th><th>เครื่องมือ</th><th>เกณฑ์</th></tr></thead>
+        <tbody>
+          <tr><td>ความรู้ (K)</td><td>แบบทดสอบหลังเรียน 10 ข้อ</td><td>ร้อยละ 70 ขึ้นไป</td></tr>
+          <tr><td>ทักษะการวิเคราะห์ (P)</td><td>ใบงานผังความคิด</td><td>ระดับดีขึ้นไป</td></tr>
+          <tr><td>เจตคติ (A)</td><td>สังเกตพฤติกรรมการร่วมอภิปราย</td><td>ระดับดีขึ้นไป</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="scores">การเก็บคะแนนนักเรียน</h2>
+    <div class="card">
+      <p>เมื่อนักเรียนทำแบบทดสอบเสร็จ จะมีช่องให้กรอกชื่อ เลขที่ ห้อง แล้วกด “ส่งคะแนน” ระบบจะเปิด Google Form ที่กรอกคะแนนไว้ให้ นักเรียนกด “ส่ง” ในฟอร์มอีกครั้ง คะแนนจะเข้า Google Sheets ที่ผูกกับฟอร์ม</p>
+      <p>ดูคะแนน: เปิด Google Form ของครู → แท็บ “การตอบกลับ” → กดไอคอน Sheets (ครั้งแรกระบบจะให้สร้างชีตใหม่)</p>
+      <p><small>แบบทดสอบก่อนเรียนจะส่งคะแนนก่อนเรียน แบบทดสอบหลังเรียนจะส่งทั้งคะแนนหลังเรียนและคะแนนก่อนเรียน (ถ้านักเรียนทำก่อนเรียนบนเครื่องเดียวกัน)</small></p>
+    </div>
+
+    <h2 id="key">เฉลยแบบทดสอบ</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ข้อ</th><th>คำตอบ</th><th>คำอธิบาย</th></tr></thead>
+        <tbody id="answer-key"></tbody>
+      </table>
+    </div>
+
+    <h2>เฉลยกิจกรรม</h2>
+    <ul>
+      <li><b>กิจกรรมที่ 1:</b> ก = ลพบุรี, ข = ป่าสัก, ค = เจ้าพระยา</li>
+      <li><b>กิจกรรมที่ 2:</b> พระเจ้าพนัญเชิง (1867) → สถาปนา (1893) → เสียกรุงครั้งที่ 1 (2112) → ประกาศอิสรภาพ (2127) → พระนารายณ์ครองราชย์ (2199) → เสียกรุงครั้งที่ 2 (2310)</li>
+      <li><b>กิจกรรมที่ 3:</b> ทำเล ข (เกาะกลางแม่น้ำ 3 สาย)</li>
+      <li><b>กิจกรรมที่ 4:</b> ลาลูแบร์ → เชียงราย · หนีโรคระบาด → เมืองอู่ทอง · พระราเมศวรครองลพบุรี → ละโว้ · ตำนานเมืองท่าฝั่งตะวันตก → เพชรบุรี</li>
+    </ul>
+
+    <h2 id="worksheet">ใบงาน: ปัจจัยการสถาปนาอาณาจักรอยุธยา</h2>
+    <p class="no-print"><button class="btn" onclick="window.print()">พิมพ์ใบงาน</button> <small>(ใช้ได้เมื่อเปิดไฟล์จากเครื่อง ระบบจะซ่อนเมนูและแบนเนอร์ให้อัตโนมัติ)</small></p>
+    <div class="card worksheet">
+      <p>ชื่อ ................................................ ชั้น ม.2/...... เลขที่ ......</p>
+      <p><b>ตอนที่ 1</b> เขียนปัจจัยที่ทำให้สถาปนาอาณาจักรอยุธยาได้ ด้านละอย่างน้อย 2 ข้อ</p>
+      <div class="mind">
+        <div><b>ภูมิศาสตร์</b></div>
+        <div><b>การเมือง</b></div>
+        <div><b>เศรษฐกิจ</b></div>
+      </div>
+      <p style="margin-top:16px"><b>ตอนที่ 2</b> นักเรียนคิดว่าปัจจัยด้านใดสำคัญที่สุด เพราะเหตุใด</p>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <p style="margin-top:16px"><b>ตอนที่ 3</b> นักเรียนเห็นด้วยกับแนวคิดใดเรื่องที่มาของพระเจ้าอู่ทอง อ้างหลักฐานประกอบ</p>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+    </div>
+
+    <h3>เกณฑ์การให้คะแนนใบงาน (10 คะแนน)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ตอน</th><th>เกณฑ์</th><th>คะแนน</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>ระบุปัจจัยถูกต้อง ด้านละ 2 ข้อ (ข้อละ 0.5)</td><td>3</td></tr>
+          <tr><td>2</td><td>เลือกปัจจัยและให้เหตุผลที่สมเหตุสมผล เชื่อมโยงกับปัจจัยอื่น</td><td>4</td></tr>
+          <tr><td>3</td><td>ระบุแนวคิดและอ้างหลักฐานได้ถูกต้อง</td><td>3</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>ระดับคุณภาพ: 9–10 ดีมาก · 7–8 ดี · 5–6 พอใช้ · ต่ำกว่า 5 ปรับปรุง</p>
+  </main>
+
+  <nav id="pager"></nav>
+  <footer id="site-footer"></footer>
+  <script src="js/main.js"></script>
+  <script src="js/quiz.js"></script>
+  <script>
+    // สร้างเฉลยจากคลังข้อสอบใน js/quiz.js อัตโนมัติ (แก้ข้อสอบที่เดียว เฉลยเปลี่ยนตาม)
+    document.getElementById("answer-key").innerHTML = QUIZ.map((item, i) =>
+      `<tr><td>${i + 1}</td><td>${"กขคง"[item.answer]}. ${item.choices[item.answer]}</td><td>${item.explain}</td></tr>`
+    ).join("");
+  </script>
+</body>
+</html>

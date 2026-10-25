@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>สื่อวิดีโอ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600&family=Chonburi&family=IBM+Plex+Sans+Thai+Looped:wght@400;600&family=Pridi:wght@500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <section class="banner">
+    <div class="banner-inner">
+      <span class="eyebrow">สื่อการเรียนรู้</span>
+      <h1>สื่อวิดีโอและบทเรียนออนไลน์</h1>
+      <p class="lead">ดูคลิปทบทวนเนื้อหาทั้ง 5 บท และศึกษาต่อจากแหล่งเรียนรู้ออนไลน์</p>
+    </div>
+  </section>
+
+  <main>
+    <h2>วิดีโอประจำบทเรียน</h2>
+    <div class="video-list" data-video-list></div>
+
+    <h2>บทเรียนออนไลน์จากแหล่งอื่น</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>การสถาปนาอาณาจักรอยุธยาและการเมืองการปกครองสมัยอยุธยา</h3>
+        <p>ที่มา: ทรูปลูกปัญญา (trueplookpanya.com)</p>
+        <a href="https://www.trueplookpanya.com/learning/detail/31344" target="_blank" rel="noopener">เปิดบทเรียน ↗</a>
+      </div>
+      <div class="card">
+        <h3>พัฒนาการของอาณาจักรอยุธยา</h3>
+        <p>ที่มา: ทรูปลูกปัญญา (trueplookpanya.com)</p>
+        <a href="https://www.trueplookpanya.com/learning/detail/31273" target="_blank" rel="noopener">เปิดบทเรียน ↗</a>
+      </div>
+      <div class="card">
+        <h3>สังคมและเศรษฐกิจสมัยอยุธยา</h3>
+        <p>เนื้อหาต่อยอด · ที่มา: ทรูปลูกปัญญา (trueplookpanya.com)</p>
+        <a href="https://www.trueplookpanya.com/learning/detail/31346" target="_blank" rel="noopener">เปิดบทเรียน ↗</a>
+      </div>
+      <div class="card">
+        <h3>DLTV ประวัติศาสตร์ ม.2</h3>
+        <p>ที่มา: มูลนิธิการศึกษาทางไกลผ่านดาวเทียม ในพระบรมราชูปถัมภ์ (DLTV) ค้นหาด้วยคำว่า “DLTV ม.2 อยุธยา”</p>
+        <a href="https://www.youtube.com/results?search_query=DLTV+%E0%B8%A1.2+%E0%B8%AD%E0%B8%A2%E0%B8%B8%E0%B8%98%E0%B8%A2%E0%B8%B2" target="_blank" rel="noopener">ค้นหาบน YouTube ↗</a>
+      </div>
+    </div>
+
+    <h2 id="credits">เครดิตสื่อ</h2>
+    <p>สื่อวิดีโอและบทเรียนออนไลน์ในเว็บไซต์นี้เป็นลิขสิทธิ์ของเจ้าของผลงาน นำมาใช้เพื่อการศึกษาเท่านั้น โดยเปิดจากแหล่งต้นฉบับ ไม่ได้ดาวน์โหลดหรืออัปโหลดซ้ำ</p>
+    <div data-video-credits></div>
+    <div class="table-wrap" style="margin-top:14px">
+      <table>
+        <thead><tr><th>แหล่งเรียนรู้ออนไลน์</th><th>เจ้าของผลงาน</th></tr></thead>
+        <tbody>
+          <tr><td>บทเรียนออนไลน์เรื่องอยุธยา 3 บท</td><td><a href="https://www.trueplookpanya.com" target="_blank" rel="noopener">ทรูปลูกปัญญา</a></td></tr>
+          <tr><td>คลิปการสอนประวัติศาสตร์ ม.2</td><td><a href="https://www.dltv.ac.th" target="_blank" rel="noopener">มูลนิธิการศึกษาทางไกลผ่านดาวเทียม (DLTV)</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <strong>สำหรับครู: วิธีใส่คลิปของตัวเอง</strong>
+      1) เลือกคลิปบน YouTube แล้วกดแชร์ → คัดลอกลิงก์ &nbsp;2) เปิดไฟล์ <code>js/media.js</code> &nbsp;3) วางลิงก์ใน <code>youtube: ""</code> และใส่ชื่อช่องใน <code>channel: ""</code> ของบทที่ต้องการ แล้วบันทึก คลิปจะแสดงทั้งในหน้านี้และในหน้าบทเรียนนั้นทันที
+    </div>
+
+    <details class="check">
+      <summary>ดูคลิปแล้ว ลองตอบ: คลิปที่ดูกล่าวถึงปัจจัยการสถาปนาอยุธยาด้านใดบ้าง</summary>
+      <p>ให้นักเรียนจดปัจจัยที่ได้ยินในคลิป แล้วจัดกลุ่มเป็นด้านภูมิศาสตร์ การเมือง และเศรษฐกิจ เปรียบเทียบกับ<a href="lesson4.html">บทที่ 4</a></p>
+    </details>
+  </main>
+
+  <nav id="pager"></nav>
+  <footer id="site-footer"></footer>
+  <script src="js/main.js"></script>
+  <script src="js/media.js"></script>
+</body>
+</html>

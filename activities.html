@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>กิจกรรมเชิงโต้ตอบ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600&family=Chonburi&family=IBM+Plex+Sans+Thai+Looped:wght@400;600&family=Pridi:wght@500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .river-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 8px 0; }
+    .river-row b { min-width: 2.5em; }
+    .evidence td:last-child { min-width: 170px; }
+  </style>
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <section class="banner">
+    <div class="banner-inner">
+        <span class="eyebrow">กิจกรรม</span>
+        <h1>กิจกรรมเชิงโต้ตอบ</h1>
+        <p class="lead">ทำกิจกรรมทั้ง 4 ข้อ เพื่อทบทวนสิ่งที่เรียนมา</p>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- กิจกรรมที่ 1 -->
+    <section class="card">
+      <h2 style="margin-top:0">กิจกรรมที่ 1 · ระบุชื่อแม่น้ำ</h2>
+      <p>แม่น้ำที่มีตัวอักษร ก ข ค กำกับ คือแม่น้ำสายใด</p>
+      <svg class="map" viewBox="0 0 400 300" role="img" aria-label="แผนผังเกาะเมืองอยุธยา แม่น้ำมีป้าย ก ข ค">
+        <path class="river" d="M60 0 C70 40 85 70 95 95 C100 140 100 180 105 220 C160 232 240 235 300 230 C305 255 308 280 310 300"/>
+        <path class="river" d="M215 0 C212 35 205 60 200 82 C160 86 120 88 95 92"/>
+        <path class="river" d="M385 15 C350 45 320 70 300 95 C298 140 298 190 300 230"/>
+        <path class="island" d="M110 100 C160 94 240 96 288 104 C292 150 292 190 290 218 C230 224 160 222 115 210 C112 170 110 130 110 100 Z"/>
+        <text x="160" y="160" style="font-size:16px;font-weight:600">เกาะเมืองอยุธยา</text>
+        <circle class="slot" cx="215" cy="45" r="15"/><text class="slot-text" x="215" y="51" text-anchor="middle">ก</text>
+        <circle class="slot" cx="330" cy="160" r="15"/><text class="slot-text" x="330" y="166" text-anchor="middle">ข</text>
+        <circle class="slot" cx="65" cy="160" r="15"/><text class="slot-text" x="65" y="166" text-anchor="middle">ค</text>
+      </svg>
+      <div style="margin-top:12px">
+        <div class="river-row"><b>ก</b><select data-answer="ลพบุรี"></select></div>
+        <div class="river-row"><b>ข</b><select data-answer="ป่าสัก"></select></div>
+        <div class="river-row"><b>ค</b><select data-answer="เจ้าพระยา"></select></div>
+      </div>
+      <p><button class="btn" id="check-river">ตรวจคำตอบ</button></p>
+      <div class="feedback" id="fb-river" aria-live="polite"></div>
+    </section>
+
+    <!-- กิจกรรมที่ 2 -->
+    <section class="card">
+      <h2 style="margin-top:0">กิจกรรมที่ 2 · เรียงลำดับเหตุการณ์</h2>
+      <p>ใช้ปุ่ม ▲ ▼ เรียงเหตุการณ์จาก<strong>เก่าที่สุด (บน)</strong> ไป<strong>ใหม่ที่สุด (ล่าง)</strong></p>
+      <ul class="sortable" id="sortable"></ul>
+      <p><button class="btn" id="check-order">ตรวจคำตอบ</button></p>
+      <div class="feedback" id="fb-order" aria-live="polite"></div>
+    </section>
+
+    <!-- กิจกรรมที่ 3 -->
+    <section class="card">
+      <h2 style="margin-top:0">กิจกรรมที่ 3 · ถ้าฉันเป็นพระเจ้าอู่ทอง</h2>
+      <p>นักเรียนต้องเลือกที่ตั้งราชธานีใหม่ในพุทธศตวรรษที่ 19 จะเลือกทำเลใด</p>
+      <div class="choices" id="site-choices">
+        <button class="choice" data-k="a"><b>ทำเล ก</b><br>บนภูเขาสูง ห่างไกลแม่น้ำ อากาศเย็นสบาย</button>
+        <button class="choice" data-k="b"><b>ทำเล ข</b><br>เกาะกลางแม่น้ำ 3 สาย บนที่ราบลุ่ม ไม่ไกลจากทะเล</button>
+        <button class="choice" data-k="c"><b>ทำเล ค</b><br>ริมชายฝั่งทะเลโดยตรง ติดอ่าวเปิด</button>
+      </div>
+      <div class="feedback" id="fb-site" aria-live="polite"></div>
+      <label for="reason" style="display:block;margin-top:14px">เขียนเหตุผลของนักเรียน (ไม่บันทึกส่งครู ใช้ฝึกคิด)</label>
+      <textarea id="reason" rows="3" style="width:100%;font:inherit;border-radius:10px;border:1px solid var(--line);padding:8px;background:var(--surface);color:var(--ink)"></textarea>
+    </section>
+
+    <!-- กิจกรรมที่ 4 -->
+    <section class="card">
+      <h2 style="margin-top:0">กิจกรรมที่ 4 · นักสืบประวัติศาสตร์</h2>
+      <p>หลักฐานแต่ละข้อสนับสนุนแนวคิดใดเกี่ยวกับที่มาของพระเจ้าอู่ทอง</p>
+      <div class="table-wrap">
+        <table class="evidence">
+          <thead><tr><th>หลักฐาน</th><th>สนับสนุนแนวคิด</th></tr></thead>
+          <tbody id="evidence-body"></tbody>
+        </table>
+      </div>
+      <p><button class="btn" id="check-evidence">ตรวจคำตอบ</button></p>
+      <div class="feedback" id="fb-evidence" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <nav id="pager"></nav>
+  <footer id="site-footer"></footer>
+  <script src="js/main.js"></script>
+  <script>
+    function showFeedback(id, ok, html) {
+      const el = document.getElementById(id);
+      el.className = "feedback show " + (ok ? "ok" : "bad");
+      el.innerHTML = html;
+    }
+    function shuffle(arr) { return arr.map(v => [Math.random(), v]).sort((a, b) => a[0] - b[0]).map(x => x[1]); }
+
+    /* ---- กิจกรรมที่ 1 ---- */
+    const RIVERS = ["เจ้าพระยา", "ป่าสัก", "ลพบุรี", "ท่าจีน", "แม่กลอง"];
+    document.querySelectorAll("select[data-answer]").forEach(s => {
+      s.innerHTML = '<option value="">— เลือกแม่น้ำ —</option>' + RIVERS.map(r => `<option>${r}</option>`).join("");
+    });
+    document.getElementById("check-river").addEventListener("click", () => {
+      const sels = [...document.querySelectorAll("select[data-answer]")];
+      const correct = sels.filter(s => s.value === s.dataset.answer).length;
+      showFeedback("fb-river", correct === 3, correct === 3
+        ? "✓ ถูกทั้ง 3 ข้อ! แม่น้ำลพบุรีอยู่ทางเหนือ ป่าสักอยู่ทางตะวันออก ส่วนเจ้าพระยาโอบด้านตะวันตกและใต้"
+        : `ถูก ${correct} จาก 3 ข้อ ลองย้อนไปดูแผนที่ใน<a href="lesson4.html">บทที่ 4</a>`);
+    });
+
+    /* ---- กิจกรรมที่ 2 ---- */
+    const EVENTS = [
+      "สร้างพระเจ้าพนัญเชิง (พ.ศ. 1867)",
+      "สถาปนากรุงศรีอยุธยา (พ.ศ. 1893)",
+      "เสียกรุงศรีอยุธยาครั้งที่ 1",
+      "สมเด็จพระนเรศวรมหาราชประกาศอิสรภาพ",
+      "สมเด็จพระนารายณ์มหาราชครองราชย์",
+      "เสียกรุงศรีอยุธยาครั้งที่ 2"
+    ];
+    const list = document.getElementById("sortable");
+    let order = shuffle(EVENTS.slice());
+    function drawList() {
+      list.innerHTML = order.map((e, i) => `
+        <li><span>${e}</span>
+          <button aria-label="เลื่อนขึ้น" data-i="${i}" data-d="-1" ${i === 0 ? "disabled" : ""}>▲</button>
+          <button aria-label="เลื่อนลง" data-i="${i}" data-d="1" ${i === order.length - 1 ? "disabled" : ""}>▼</button>
+        </li>`).join("");
+    }
+    list.addEventListener("click", e => {
+      const b = e.target.closest("button"); if (!b) return;
+      const i = +b.dataset.i, j = i + (+b.dataset.d);
+      [order[i], order[j]] = [order[j], order[i]];
+      drawList();
+    });
+    drawList();
+    document.getElementById("check-order").addEventListener("click", () => {
+      const correct = order.filter((e, i) => e === EVENTS[i]).length;
+      showFeedback("fb-order", correct === EVENTS.length, correct === EVENTS.length
+        ? "✓ เรียงถูกต้องทั้งหมด! (1867 → 1893 → 2112 → 2127 → 2199 → 2310)"
+        : `อยู่ถูกตำแหน่ง ${correct} จาก ${EVENTS.length} เหตุการณ์ ลองอีกครั้ง`);
+    });
+
+    /* ---- กิจกรรมที่ 3 ---- */
+    const SITE_FB = {
+      a: [false, "อากาศดีก็จริง แต่ห่างแม่น้ำจะขาดน้ำทำนา และขนส่งสินค้าได้ยาก ค้าขายกับต่างชาติก็ลำบาก"],
+      b: [true,  "✓ ถูกต้อง! นี่คือทำเลของอยุธยา ป้องกันข้าศึกได้ดี ดินอุดมสมบูรณ์ และเรือสำเภาแล่นเข้ามาค้าขายได้"],
+      c: [false, "ค้าขายสะดวกก็จริง แต่ติดทะเลเปิดเสี่ยงต่อการถูกโจมตีทางเรือ และดินเค็มไม่เหมาะกับการทำนา"]
+    };
+    document.querySelectorAll("#site-choices .choice").forEach(b => {
+      b.addEventListener("click", () => {
+        document.querySelectorAll("#site-choices .choice").forEach(x => x.classList.toggle("picked", x === b));
+        const [ok, msg] = SITE_FB[b.dataset.k];
+        showFeedback("fb-site", ok, msg);
+      });
+    });
+
+    /* ---- กิจกรรมที่ 4 ---- */
+    const THEORIES = ["เชียงราย", "เมืองอู่ทอง", "ละโว้", "เพชรบุรี"];
+    const EVIDENCE = [
+      { text: "บันทึกของลาลูแบร์ ราชทูตฝรั่งเศส", answer: "เชียงราย" },
+      { text: "พงศาวดารกล่าวถึงการย้ายเมืองหนีโรคระบาด และพระนามตรงกับชื่อเมือง", answer: "เมืองอู่ทอง" },
+      { text: "พระราเมศวร พระราชโอรส ได้ไปครองเมืองลพบุรี", answer: "ละโว้" },
+      { text: "ตำนานท้องถิ่นเมืองท่าฝั่งตะวันตกของอ่าวไทย", answer: "เพชรบุรี" }
+    ];
+    document.getElementById("evidence-body").innerHTML = EVIDENCE.map((ev, i) => `
+      <tr><td>${ev.text}</td><td><select id="ev${i}"><option value="">— เลือก —</option>
+        ${THEORIES.map(t => `<option>${t}</option>`).join("")}</select></td></tr>`).join("");
+    document.getElementById("check-evidence").addEventListener("click", () => {
+      const correct = EVIDENCE.filter((ev, i) => document.getElementById("ev" + i).value === ev.answer).length;
+      showFeedback("fb-evidence", correct === EVIDENCE.length, correct === EVIDENCE.length
+        ? "✓ ยอดเยี่ยม! นักสืบประวัติศาสตร์ตัวจริง"
+        : `ถูก ${correct} จาก ${EVIDENCE.length} ข้อ ทบทวนได้ที่<a href="lesson3.html">บทที่ 3</a>`);
+    });
+  </script>
+</body>
+</html>

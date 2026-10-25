@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>บล็อกประวัติศาสตร์</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600&family=Chonburi&family=IBM+Plex+Sans+Thai+Looped:wght@400;600&family=Pridi:wght@500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <section class="banner">
+    <div class="banner-inner">
+      <span class="eyebrow">บล็อก</span>
+      <h1>บล็อกประวัติศาสตร์</h1>
+      <p class="lead">ข่าวสาร ความรู้เพิ่มเติม และกิจกรรมในชั้นเรียน วิชาประวัติศาสตร์ ม.2</p>
+    </div>
+  </section>
+
+  <main>
+    <div class="blog-filter" id="blog-filter" role="tablist" aria-label="หมวดบทความ"></div>
+    <div id="blog-list" class="blog-list" aria-live="polite">
+      <p class="blog-empty">กำลังโหลดบทความ…</p>
+    </div>
+    <article id="blog-post" class="blog-post" hidden></article>
+  </main>
+
+  <nav id="pager"></nav>
+  <footer id="site-footer"></footer>
+  <script src="js/main.js"></script>
+  <script src="js/vendor/marked.min.js"></script>
+  <script src="js/vendor/purify.min.js"></script>
+  <script src="js/blog.js"></script>
+</body>
+</html>

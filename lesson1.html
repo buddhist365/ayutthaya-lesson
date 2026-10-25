@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ก่อนมีอยุธยา</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600&family=Chonburi&family=IBM+Plex+Sans+Thai+Looped:wght@400;600&family=Pridi:wght@500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .city { cursor: pointer; }
+    .city circle { fill: var(--surface); stroke: var(--cinnabar); stroke-width: 3; transition: r .2s; }
+    .city.active circle { fill: var(--cinnabar); }
+    .city:hover circle, .city:focus circle { r: 13; }
+    .city:focus { outline: none; }
+  </style>
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <section class="banner">
+    <div class="banner-inner">
+        <span class="eyebrow">บทที่ 1</span>
+        <h1>บริเวณนี้ก่อนมีอยุธยา</h1>
+        <p class="lead">อยุธยาไม่ได้เกิดขึ้นบนพื้นที่ว่างเปล่า ก่อน พ.ศ. 1893 ลุ่มแม่น้ำเจ้าพระยาตอนล่างมีชุมชนและแคว้นที่เจริญอยู่แล้วหลายแห่ง</p>
+    </div>
+  </section>
+
+  <main>
+    <div data-video="lesson1"></div>
+
+    <h2>แผนที่แคว้นสำคัญ (ราวพุทธศตวรรษที่ 18–19)</h2>
+    <p>กดที่ชื่อเมืองบนแผนที่เพื่ออ่านข้อมูล</p>
+
+    <svg class="map" viewBox="0 0 400 340" role="img" aria-label="แผนที่แคว้นสำคัญก่อนสถาปนาอยุธยา">
+      <path class="land" d="M0 0 H400 V300 C340 290 300 320 250 300 C220 290 200 330 160 320 L120 340 H0 Z"/>
+      <path class="river" d="M175 0 C180 60 190 120 200 170 C205 210 210 260 215 305"/>
+      <text x="300" y="325" class="rlabel">อ่าวไทย</text>
+
+      <g class="city" tabindex="0" data-city="sukhothai"><circle cx="150" cy="40" r="10"/><text x="166" y="45">สุโขทัย</text></g>
+      <g class="city" tabindex="0" data-city="lavo"><circle cx="240" cy="160" r="10"/><text x="256" y="165">ละโว้</text></g>
+      <g class="city" tabindex="0" data-city="ayodhya"><circle cx="202" cy="205" r="10"/><text x="110" y="210">อโยธยา</text></g>
+      <g class="city" tabindex="0" data-city="suphan"><circle cx="120" cy="190" r="10"/><text x="40" y="170">สุพรรณภูมิ</text></g>
+      <g class="city" tabindex="0" data-city="khmer"><circle cx="360" cy="230" r="10"/><text x="312" y="262">เขมร →</text></g>
+    </svg>
+    <p class="caption">แผนผังอย่างง่าย ไม่ใช่มาตราส่วนจริง</p>
+
+    <div class="card" id="city-info" aria-live="polite">
+      <p style="color:var(--muted);margin:0">← กดที่เมืองบนแผนที่</p>
+    </div>
+
+    <h2>สรุปสภาพการณ์ก่อนสถาปนาอยุธยา</h2>
+    <ul>
+      <li><strong>อโยธยา</strong> เป็นชุมชนเมืองที่ตั้งอยู่ทางฝั่งตะวันออกของเกาะเมืองอยุธยาในปัจจุบัน และเจริญอยู่ก่อนแล้ว</li>
+      <li><strong>ละโว้</strong> และ<strong>สุพรรณภูมิ</strong> เป็นแคว้นใหญ่ที่มีกำลังคนและเศรษฐกิจเข้มแข็ง</li>
+      <li><strong>สุโขทัย</strong> และ<strong>เขมร</strong> ซึ่งเคยมีอำนาจมาก กำลังเสื่อมอำนาจลง</li>
+    </ul>
+
+    <div class="callout">
+      <strong>หลักฐานสำคัญ:</strong> พระราชพงศาวดารกรุงเก่า ฉบับหลวงประเสริฐอักษรนิติ์ บันทึกว่ามีการสร้าง<strong>พระเจ้าพนัญเชิง</strong>เมื่อ พ.ศ. 1867 ก่อนสถาปนาอยุธยา 26 ปี แสดงว่าบริเวณนี้มีชุมชนที่มีความเจริญอยู่แล้ว
+    </div>
+
+    <details class="check">
+      <summary>ตรวจสอบความเข้าใจ: ทำไมจึงกล่าวว่าอยุธยา “ไม่ได้เริ่มจากศูนย์”</summary>
+      <p>เพราะบริเวณนี้มีชุมชนอโยธยาที่เจริญอยู่ก่อนแล้ว มีหลักฐานคือการสร้างพระเจ้าพนัญเชิงใน พ.ศ. 1867 อีกทั้งยังมีแคว้นละโว้และสุพรรณภูมิอยู่ใกล้เคียง อยุธยาจึงรับทั้งผู้คน ความรู้ และวัฒนธรรมจากชุมชนเดิมมาต่อยอดได้ทันที</p>
+    </details>
+  </main>
+
+  <nav id="pager"></nav>
+  <footer id="site-footer"></footer>
+  <script src="js/main.js"></script>
+  <script src="js/media.js"></script>
+  <script>
+    // ข้อมูลของแต่ละเมือง แก้ไขข้อความได้ที่นี่
+    const CITIES = {
+      sukhothai: { name: "สุโขทัย", text: "เคยเป็นศูนย์กลางอำนาจทางตอนบน รุ่งเรืองมากในสมัยพ่อขุนรามคำแหงมหาราช แต่หลังจากนั้นอำนาจเริ่มลดลง เมืองประเทศราชหลายเมืองแยกตัวออกไป" },
+      lavo:      { name: "ละโว้ (ลพบุรี)", text: "เมืองเก่าแก่ที่เคยอยู่ใต้อิทธิพลของเขมร เป็นศูนย์กลางศาสนาและศิลปวิทยาการ มีความรู้ด้านการปกครองแบบเขมร ต่อมามีบทบาทสำคัญในการก่อตั้งอยุธยา" },
+      ayodhya:   { name: "อโยธยา", text: "ชุมชนเมืองริมแม่น้ำ ตั้งอยู่ทางฝั่งตะวันออกของเกาะเมืองอยุธยาในปัจจุบัน มีหลักฐานคือการสร้างพระเจ้าพนัญเชิงเมื่อ พ.ศ. 1867 ถือเป็นรากฐานโดยตรงของกรุงศรีอยุธยา" },
+      suphan:    { name: "สุพรรณภูมิ (สุพรรณบุรี)", text: "แคว้นที่มีกำลังคนมากและเศรษฐกิจดี ราชวงศ์สุพรรณภูมิเกี่ยวดองเป็นเครือญาติกับพระเจ้าอู่ทอง ภายหลังขึ้นมามีอำนาจปกครองอยุธยาเป็นเวลานาน" },
+      khmer:     { name: "เขมร (กัมพูชา)", text: "เคยมีอิทธิพลแผ่มาถึงลุ่มแม่น้ำเจ้าพระยา แต่ในช่วงพุทธศตวรรษที่ 19 อำนาจเริ่มเสื่อมลง จึงไม่สามารถควบคุมแคว้นในบริเวณนี้ได้อีก" }
+    };
+    const info = document.getElementById("city-info");
+    document.querySelectorAll(".city").forEach(g => {
+      const show = () => {
+        document.querySelectorAll(".city").forEach(x => x.classList.toggle("active", x === g));
+        const c = CITIES[g.dataset.city];
+        info.innerHTML = `<h3 style="margin-top:0">${c.name}</h3><p style="margin:0">${c.text}</p>`;
+      };
+      g.addEventListener("click", show);
+      g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); show(); } });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# เว็บนี้ไม่ต้อง build ใช้ไฟล์ในโฟลเดอร์นี้ได้เลย
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/content/*"
+  [headers.values]
+    Cache-Control = "no-cache"
