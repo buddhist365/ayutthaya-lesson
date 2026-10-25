@@ -1,0 +1,36 @@
+# ตั้งค่าหลังบ้าน (Decap CMS)
+# ต้องแก้ 2 บรรทัดใต้ backend ให้ตรงกับบัญชี GitHub ของคุณ
+backend:
+  name: github
+  repo: buddhist365/ayutthaya-lesson   # ชื่อผู้ใช้GitHub/ชื่อrepository
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+locale: th
+
+media_folder: images/uploads   # รูปที่อัปโหลดจากหลังบ้านจะเก็บที่นี่
+public_folder: /images/uploads
+
+collections:
+  - name: blog
+    label: บล็อก
+    files:
+      - name: posts
+        label: บทความทั้งหมด
+        file: content/blog.json
+        fields:
+          - name: posts
+            label: บทความ
+            label_singular: บทความ
+            widget: list
+            summary: "{{fields.date}} · {{fields.title}}"
+            fields:
+              - { name: title, label: หัวข้อ, widget: string }
+              - { name: slug, label: "ชื่อลิงก์ (อังกฤษตัวเล็ก ไม่เว้นวรรค เช่น week-1)", widget: string, pattern: ['^[a-z0-9-]+$', 'ใช้ได้เฉพาะ a-z ตัวเลข และขีด -'] }
+              - { name: date, label: วันที่, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false }
+              - { name: category, label: หมวด, widget: select, options: [ข่าวสาร, ความรู้เพิ่มเติม, กิจกรรมในชั้นเรียน, ผลงานนักเรียน], default: ข่าวสาร }
+              - { name: cover, label: ภาพปก, widget: image, required: false }
+              - { name: summary, label: คำโปรยสั้นๆ, widget: text }
+              - { name: body, label: เนื้อหา, widget: markdown }
+              - { name: draft, label: "ฉบับร่าง (ยังไม่แสดงบนเว็บ)", widget: boolean, default: false }
