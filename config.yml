@@ -9,8 +9,8 @@ backend:
 
 locale: th
 
-media_folder: images/uploads   # รูปที่อัปโหลดจากหลังบ้านจะเก็บที่นี่
-public_folder: /images/uploads
+media_folder: uploads   # รูปที่อัปโหลดจากหลังบ้านจะเก็บที่นี่
+public_folder: /uploads
 
 collections:
   - name: blog
@@ -18,7 +18,7 @@ collections:
     files:
       - name: posts
         label: บทความทั้งหมด
-        file: content/blog.json
+        file: blog.json
         fields:
           - name: posts
             label: บทความ

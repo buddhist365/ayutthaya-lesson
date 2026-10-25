@@ -4,6 +4,16 @@
   command = ""
 
 [[headers]]
-  for = "/content/*"
+  for = "/blog.json"
   [headers.values]
     Cache-Control = "no-cache"
+
+# เข้า /admin หรือ /admin/ ให้ไปหน้าหลังบ้าน
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 301
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin.html"
+  status = 301

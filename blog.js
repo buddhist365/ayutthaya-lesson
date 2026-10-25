@@ -1,5 +1,5 @@
 /* =========================================================
-   บล็อก: อ่านบทความจาก content/blog.json
+   บล็อก: อ่านบทความจาก blog.json
    ครูเขียน/แก้บทความได้ที่หน้าหลังบ้าน /admin/ (ไม่ต้องแก้ไฟล์นี้)
    ========================================================= */
 (function () {
@@ -34,7 +34,7 @@
     renderFilter();
     const shown = posts.filter(p => category === "ทั้งหมด" || p.category === category);
     if (!shown.length) {
-      listEl.innerHTML = `<p class="blog-empty">ยังไม่มีบทความ ครูเพิ่มบทความแรกได้ที่หน้าหลังบ้าน <code>/admin/</code></p>`;
+      listEl.innerHTML = `<p class="blog-empty">ยังไม่มีบทความ ครูเพิ่มบทความแรกได้ที่หน้าหลังบ้าน <code>/admin.html</code></p>`;
       return;
     }
     listEl.innerHTML = shown.map((p, i) => `
@@ -76,7 +76,7 @@
   });
   window.addEventListener("hashchange", route);
 
-  fetch("content/blog.json", { cache: "no-store" })
+  fetch("blog.json", { cache: "no-store" })
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(data => {
       posts = (data.posts || [])

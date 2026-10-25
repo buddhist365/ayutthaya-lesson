@@ -6,7 +6,7 @@
   <title>คู่มือสำหรับครู</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600&family=Chonburi&family=IBM+Plex+Sans+Thai+Looped:wght@400;600&family=Pridi:wght@500;600&display=swap">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
   <style>
     .worksheet .line { border-bottom: 1px dotted var(--muted); height: 2em; }
     .mind { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
@@ -118,10 +118,10 @@
 
   <nav id="pager"></nav>
   <footer id="site-footer"></footer>
-  <script src="js/main.js"></script>
-  <script src="js/quiz.js"></script>
+  <script src="main.js"></script>
+  <script src="quiz.js"></script>
   <script>
-    // สร้างเฉลยจากคลังข้อสอบใน js/quiz.js อัตโนมัติ (แก้ข้อสอบที่เดียว เฉลยเปลี่ยนตาม)
+    // สร้างเฉลยจากคลังข้อสอบใน quiz.js อัตโนมัติ (แก้ข้อสอบที่เดียว เฉลยเปลี่ยนตาม)
     document.getElementById("answer-key").innerHTML = QUIZ.map((item, i) =>
       `<tr><td>${i + 1}</td><td>${"กขคง"[item.answer]}. ${item.choices[item.answer]}</td><td>${item.explain}</td></tr>`
     ).join("");

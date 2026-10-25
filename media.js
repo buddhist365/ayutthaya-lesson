@@ -85,7 +85,7 @@ function renderVideo(slot, v) {
         <b>${v.title}</b>
         <small>${v.note || ""}</small>
         <a class="btn gold" href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">ค้นหาคลิปบน YouTube ↗</a>
-        <small class="video-hint">ครู: วางลิงก์คลิปที่เลือกแล้วในไฟล์ js/media.js เพื่อแสดงคลิปตรงนี้</small>
+        <small class="video-hint">ครู: วางลิงก์คลิปที่เลือกแล้วในไฟล์ media.js เพื่อแสดงคลิปตรงนี้</small>
       </div>`;
     return;
   }
@@ -111,7 +111,7 @@ function renderVideo(slot, v) {
 function creditHtml(v, watch) {
   const who = v.channel
     ? (v.channelUrl ? `<a href="${v.channelUrl}" target="_blank" rel="noopener">${v.channel}</a>` : v.channel)
-    : `<span class="credit-missing">ยังไม่ได้ระบุชื่อช่อง (ใส่ใน js/media.js)</span>`;
+    : `<span class="credit-missing">ยังไม่ได้ระบุชื่อช่อง (ใส่ใน media.js)</span>`;
   return `<p class="video-credit">ที่มา: ${who} · <a href="${watch}" target="_blank" rel="noopener">YouTube ↗</a></p>`;
 }
 
@@ -119,7 +119,7 @@ function creditHtml(v, watch) {
 function renderCredits(el) {
   const used = VIDEOS.map(v => ({ v, id: youtubeId(v.youtube) })).filter(x => x.id);
   if (!used.length) {
-    el.innerHTML = `<p class="credit-empty">ยังไม่มีคลิปในบทเรียน เมื่อครูใส่ลิงก์คลิปและชื่อช่องใน <code>js/media.js</code> รายการเครดิตจะแสดงที่นี่อัตโนมัติ</p>`;
+    el.innerHTML = `<p class="credit-empty">ยังไม่มีคลิปในบทเรียน เมื่อครูใส่ลิงก์คลิปและชื่อช่องใน <code>media.js</code> รายการเครดิตจะแสดงที่นี่อัตโนมัติ</p>`;
     return;
   }
   el.innerHTML = `<div class="table-wrap"><table>
