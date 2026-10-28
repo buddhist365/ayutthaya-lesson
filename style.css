@@ -868,10 +868,10 @@ footer a { color: var(--cinnabar); }
    ชุดลวดลายประวัติศาสตร์ (v2): ประจำยาม · ลายกรวยเชิง · กรอบกนก
    ========================================================= */
 :root {
-  --orn-prajam: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='#c8901e' stroke-width='3'%3E%3Cpath d='M28 3 L53 28 L28 53 L3 28 Z'/%3E%3Cpath d='M28 11 C34 19 34 23 28 28 C22 23 22 19 28 11Z M45 28 C37 34 33 34 28 28 C33 22 37 22 45 28Z M28 45 C22 37 22 33 28 28 C34 33 34 37 28 45Z M11 28 C19 22 23 22 28 28 C23 34 19 34 11 28Z'/%3E%3C/g%3E%3Ccircle cx='28' cy='28' r='3.5' fill='#c8901e'/%3E%3C/svg%3E");
-  --orn-band: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14'%3E%3Cpath d='M14 1 L21 7 L14 13 L7 7 Z' fill='none' stroke='#c8901e' stroke-width='1.4'/%3E%3Ccircle cx='14' cy='7' r='1.8' fill='#c8901e'/%3E%3Ccircle cx='0' cy='7' r='1.3' fill='#c8901e'/%3E%3Ccircle cx='28' cy='7' r='1.3' fill='#c8901e'/%3E%3Cpath d='M2 7 H6 M22 7 H26' stroke='#c8901e' stroke-width='1'/%3E%3C/svg%3E");
-  --orn-corner: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='#c8901e' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M3 37 V8 Q3 3 8 3 H37'/%3E%3Cpath d='M8 30 V12 Q8 8 12 8 H30'/%3E%3Cpath d='M12 12 C20 12 22 20 16 21 C12 22 12 16 16 16'/%3E%3C/g%3E%3Ccircle cx='37' cy='3' r='2' fill='#c8901e'/%3E%3Ccircle cx='3' cy='37' r='2' fill='#c8901e'/%3E%3C/svg%3E");
-  --orn-corner-br: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg transform='rotate(180 20 20)' fill='none' stroke='#c8901e' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M3 37 V8 Q3 3 8 3 H37'/%3E%3Cpath d='M8 30 V12 Q8 8 12 8 H30'/%3E%3Cpath d='M12 12 C20 12 22 20 16 21 C12 22 12 16 16 16'/%3E%3C/g%3E%3Ccircle cx='37' cy='3' r='2' fill='#c8901e'/%3E%3Ccircle cx='3' cy='37' r='2' fill='#c8901e'/%3E%3C/svg%3E");
+  --orn-prajam: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23c8901e' stroke-width='3'%3E%3Cpath d='M28 3 L53 28 L28 53 L3 28 Z'/%3E%3Cpath d='M28 11 C34 19 34 23 28 28 C22 23 22 19 28 11Z M45 28 C37 34 33 34 28 28 C33 22 37 22 45 28Z M28 45 C22 37 22 33 28 28 C34 33 34 37 28 45Z M11 28 C19 22 23 22 28 28 C23 34 19 34 11 28Z'/%3E%3C/g%3E%3Ccircle cx='28' cy='28' r='3.5' fill='%23c8901e'/%3E%3C/svg%3E");
+  --orn-band: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14'%3E%3Cpath d='M14 1 L21 7 L14 13 L7 7 Z' fill='none' stroke='%23c8901e' stroke-width='1.4'/%3E%3Ccircle cx='14' cy='7' r='1.8' fill='%23c8901e'/%3E%3Ccircle cx='0' cy='7' r='1.3' fill='%23c8901e'/%3E%3Ccircle cx='28' cy='7' r='1.3' fill='%23c8901e'/%3E%3Cpath d='M2 7 H6 M22 7 H26' stroke='%23c8901e' stroke-width='1'/%3E%3C/svg%3E");
+  --orn-corner: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23c8901e' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M3 37 V8 Q3 3 8 3 H37'/%3E%3Cpath d='M8 30 V12 Q8 8 12 8 H30'/%3E%3Cpath d='M12 12 C20 12 22 20 16 21 C12 22 12 16 16 16'/%3E%3C/g%3E%3Ccircle cx='37' cy='3' r='2' fill='%23c8901e'/%3E%3Ccircle cx='3' cy='37' r='2' fill='%23c8901e'/%3E%3C/svg%3E");
+  --orn-corner-br: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg transform='rotate(180 20 20)' fill='none' stroke='%23c8901e' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M3 37 V8 Q3 3 8 3 H37'/%3E%3Cpath d='M8 30 V12 Q8 8 12 8 H30'/%3E%3Cpath d='M12 12 C20 12 22 20 16 21 C12 22 12 16 16 16'/%3E%3C/g%3E%3Ccircle cx='37' cy='3' r='2' fill='%23c8901e'/%3E%3Ccircle cx='3' cy='37' r='2' fill='%23c8901e'/%3E%3C/svg%3E");
   --know: #2f7d6b;  --know-soft: #e3f2ec;
   --think: #6b4c9a; --think-soft: #efe8f7;
   --howto: #b9581d;
@@ -1088,3 +1088,63 @@ h3 { color: var(--cinnabar); }
 .flashcards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 1fr)); }
 @media (max-width: 520px) { .flash { height: 120px; } .flash-front { font-size: 1.05rem; } .flash-back { font-size: .85rem; } }
 .memory { max-width: 620px; margin-inline: auto; }
+
+/* ---------- คู่มือการใช้สื่อ: ขั้นตอน ---------- */
+.steps { list-style: none; padding: 0; margin: 16px 0; counter-reset: st; display: grid; gap: 0; position: relative; }
+.steps li {
+  counter-increment: st; position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 14px;
+  padding-bottom: 20px; max-width: none;
+}
+.steps li::before {
+  content: counter(st); grid-row: 1 / span 2; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%;
+  background: linear-gradient(135deg, var(--lacquer-2), var(--lacquer)); color: #fff; font: 600 1.05rem var(--font-label);
+  box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px color-mix(in srgb, var(--gold) 50%, transparent); position: relative; z-index: 1;
+}
+.steps li:not(:last-child)::after { content: ""; position: absolute; left: 19px; top: 44px; bottom: 0; width: 2px; background: color-mix(in srgb, var(--gold) 45%, transparent); }
+.steps b { font-family: var(--font-head); font-size: 1.05rem; padding-top: 6px; }
+.steps span { color: var(--muted); }
+
+/* ---------- แบบประเมิน ---------- */
+.sv-sec { border: 0; margin: 0 0 18px; padding: 0; min-width: 0; }
+.sv-sec legend { font: 600 1.05rem var(--font-head); color: var(--cinnabar); padding: 0; margin-bottom: 6px; }
+.sv-row { padding: 12px 0; border-top: 1px solid var(--line); }
+.sv-row.missing .sv-q { color: var(--cinnabar); }
+.sv-q { margin: 0 0 8px; font-weight: 600; max-width: none; }
+.sv-scale { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+.sv-scale label { cursor: pointer; }
+.sv-scale input { position: absolute; opacity: 0; pointer-events: none; }
+.sv-scale span {
+  display: flex; flex-direction: column; align-items: center; gap: 0; padding: 6px 2px; border-radius: 10px; text-align: center;
+  border: 1.5px solid var(--line); background: var(--surface); transition: background .15s, border-color .15s;
+}
+.sv-scale b { font: 600 1.1rem var(--font-label); }
+.sv-scale small { font: 500 .7rem/1.3 var(--font-label); color: var(--muted); }
+.sv-scale label:hover span { border-color: var(--gold); }
+.sv-scale input:checked + span { background: var(--cinnabar); border-color: var(--cinnabar); color: #fff; }
+.sv-scale input:checked + span small { color: #fff; }
+.sv-scale input:focus-visible + span { outline: 3px solid var(--leaf); outline-offset: 2px; }
+.sv-comment { display: block; font-weight: 600; margin: 6px 0; }
+#sv-text { width: 100%; font: inherit; border-radius: 10px; border: 1px solid var(--line); padding: 8px; background: var(--surface); color: var(--ink); }
+.survey-result { background: var(--surface); border: 1px solid color-mix(in srgb, var(--gold) 35%, var(--line)); border-radius: 14px; padding: 4px 22px 18px; box-shadow: var(--shadow); margin-top: 20px; }
+.sv-total { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin: 8px 0 16px; }
+.sv-total b { font: 400 3rem/1 var(--font-display); color: var(--cinnabar); font-variant-numeric: tabular-nums; }
+.sv-bars { display: grid; gap: 10px; }
+.sv-bar { display: grid; grid-template-columns: minmax(0, 9em) minmax(0, 1fr) 3em; gap: 10px; align-items: center; font: 500 .92rem var(--font-label); }
+.sv-bar b { text-align: right; font-variant-numeric: tabular-nums; }
+.sv-track { height: 12px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.sv-track span { display: block; height: 100%; background: linear-gradient(90deg, var(--leaf), var(--cinnabar)); border-radius: 999px; }
+.sv-thanks { text-align: center; color: var(--ok); font-weight: 600; max-width: none; }
+
+/* ---------- ผู้จัดทำ ---------- */
+.profile {
+  display: flex; gap: 22px; align-items: center; flex-wrap: wrap; padding: 22px; border-radius: 16px; margin-bottom: 8px;
+  background: var(--orn-corner) 8px 8px / 36px no-repeat, var(--orn-corner-br) calc(100% - 8px) calc(100% - 8px) / 36px no-repeat,
+    linear-gradient(135deg, var(--surface), var(--gold-soft));
+  border: 1px solid color-mix(in srgb, var(--gold) 40%, var(--line)); box-shadow: var(--shadow);
+}
+.profile-mark { width: 96px; height: 96px; flex: none; border-radius: 50%; background: var(--orn-prajam) center / 62% no-repeat, linear-gradient(135deg, var(--lacquer-2), var(--lacquer)); box-shadow: 0 0 0 4px var(--surface), 0 0 0 6px var(--leaf); }
+.profile .eyebrow { margin-bottom: 4px; }
+.profile-name { display: block; margin: 0; font-size: clamp(1.4rem, 4vw, 1.9rem); }
+.profile-name::before, .profile-name::after { display: none; }
+.profile-school { margin: 2px 0 0; color: var(--muted); font: 500 1.05rem var(--font-label); }
+.table-wrap th[scope], tbody th { width: 34%; }

@@ -63,14 +63,80 @@ const QUIZ = [
     choices: ["อยู่บนภูเขาสูง มองเห็นเรือได้ไกล", "อยู่ไม่ไกลจากปากอ่าว เรือสำเภาแล่นเข้าถึงได้", "ห้ามคนต่างชาติเข้าเมือง", "ไม่มีแม่น้ำผ่าน จึงต้องค้าทางบก"],
     answer: 1,
     explain: "อยุธยาอยู่ไม่ไกลจากปากอ่าวไทย เรือสำเภาจึงแล่นตามแม่น้ำเจ้าพระยาเข้ามาค้าขายได้สะดวก"
+  },
+  {
+    q: "สมเด็จพระรามาธิบดีที่ 1 ทรงสร้างพระราชวังแห่งแรกที่ใด",
+    choices: ["ตำบลบางกอก", "ตำบลหนองโสน", "ตำบลบางปะอิน", "ตำบลท่าเตียน"],
+    answer: 1,
+    explain: "ทรงสร้างพระราชวังที่ตำบลหนองโสน (ปัจจุบันคือบึงพระราม)"
+  },
+  {
+    q: "การปกครองแบบจตุสดมภ์ประกอบด้วยฝ่ายใดบ้าง",
+    choices: ["เวียง วัง คลัง ทัพ", "มหาดไทย กลาโหม คลัง นา", "เวียง วัง คลัง นา", "วัง คลัง นา ทหาร"],
+    answer: 2,
+    explain: "จตุสดมภ์คือการปกครองส่วนกลาง 4 ฝ่าย ได้แก่ เวียง วัง คลัง นา"
+  },
+  {
+    q: "พระเจ้าอู่ทองพระราชทานนามราชธานีใหม่ว่าอย่างไร",
+    choices: ["กรุงเทพทวารวดีศรีอยุธยา", "กรุงเทพมหานครอมรรัตนโกสินทร์", "กรุงธนบุรีศรีมหาสมุทร", "กรุงสุโขทัยราชธานี"],
+    answer: 0,
+    explain: "พระราชทานนามว่า “กรุงเทพทวารวดีศรีอยุธยา”"
+  },
+  {
+    q: "คำว่า “อยุธยา” มีความหมายว่าอย่างไร",
+    choices: ["เมืองแห่งแม่น้ำสามสาย", "เมืองที่ไม่มีใครรบชนะได้", "เมืองแห่งข้าวและปลา", "เมืองท่าค้าขาย"],
+    answer: 1,
+    explain: "มาจากภาษาสันสกฤต แปลว่าเมืองที่ไม่มีใครรบชนะได้ สอดคล้องกับทำเลที่ป้องกันข้าศึกได้ดี"
+  },
+  {
+    q: "ข้อใดเป็นข้อโต้แย้งแนวคิดที่ว่าพระเจ้าอู่ทองย้ายมาจากเมืองอู่ทอง",
+    choices: ["เมืองอู่ทองอยู่ใกล้ทะเลเกินไป", "ไม่มีชื่อเมืองอู่ทองในพงศาวดาร", "หลักฐานทางโบราณคดีชี้ว่าเมืองอู่ทองร้างไปก่อน พ.ศ. 1893", "พระเจ้าอู่ทองไม่ได้เป็นกษัตริย์"],
+    answer: 2,
+    explain: "หลักฐานทางโบราณคดีพบว่าเมืองอู่ทองร้างไปนานก่อนการสถาปนาอยุธยา"
+  },
+  {
+    q: "ข้อใดเป็นปัจจัยด้านเศรษฐกิจที่ทำให้อยุธยาเจริญรุ่งเรือง",
+    choices: ["เป็นศูนย์รวมสินค้าของป่าจากหัวเมืองทางเหนือ", "สุโขทัยเสื่อมอำนาจ", "มีผู้นำที่มีความสามารถ", "ละโว้และสุพรรณภูมิเป็นเครือญาติกัน"],
+    answer: 0,
+    explain: "สินค้าของป่าล่องเรือมารวมที่อยุธยาก่อนส่งออก ข้ออื่นเป็นปัจจัยด้านการเมือง"
+  },
+  {
+    q: "การเสียกรุงศรีอยุธยาครั้งที่ 1 เกิดขึ้นในปีใด",
+    choices: ["พ.ศ. 2112", "พ.ศ. 2127", "พ.ศ. 2199", "พ.ศ. 2310"],
+    answer: 0,
+    explain: "เสียกรุงครั้งที่ 1 เมื่อ พ.ศ. 2112 ส่วน พ.ศ. 2310 คือเสียกรุงครั้งที่ 2"
+  },
+  {
+    q: "พระมหากษัตริย์พระองค์ใดทรงประกาศอิสรภาพเมื่อ พ.ศ. 2127",
+    choices: ["สมเด็จพระนารายณ์มหาราช", "สมเด็จพระบรมไตรโลกนาถ", "สมเด็จพระนเรศวรมหาราช", "สมเด็จพระเจ้าเอกทัศ"],
+    answer: 2,
+    explain: "สมเด็จพระนเรศวรมหาราชทรงประกาศอิสรภาพเมื่อ พ.ศ. 2127"
+  },
+  {
+    q: "ราชวงศ์ใดมีพระมหากษัตริย์ปกครองอยุธยามากที่สุด",
+    choices: ["ราชวงศ์อู่ทอง", "ราชวงศ์สุพรรณภูมิ", "ราชวงศ์ปราสาททอง", "ราชวงศ์บ้านพลูหลวง"],
+    answer: 1,
+    explain: "ราชวงศ์สุพรรณภูมิมีพระมหากษัตริย์ 13 พระองค์ มากที่สุดใน 5 ราชวงศ์"
+  },
+  {
+    q: "พระเจ้าอู่ทองโปรดให้พระราชโอรสพระองค์ใดไปครองเมืองลพบุรี",
+    choices: ["พระราเมศวร", "พระนเรศวร", "พระอินทราชา", "พระบรมไตรโลกนาถ"],
+    answer: 0,
+    explain: "พระราเมศวรไปครองลพบุรี เป็นหลักฐานหนึ่งที่สนับสนุนแนวคิดว่าพระเจ้าอู่ทองมาจากละโว้"
   }
 ];
 
 /* สร้างแบบทดสอบลงใน element ที่กำหนด
    storeKey = ชื่อสำหรับบันทึกคะแนน ("pre" หรือ "post") */
 function renderQuiz(container, storeKey) {
+  // สลับลำดับข้อและตัวเลือกทุกครั้งที่เปิดแบบทดสอบ
+  const mix = a => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map(x => x[1]);
+  const ITEMS = mix(QUIZ).map(q => {
+    const order = mix([0, 1, 2, 3]);
+    return { q: q.q, choices: order.map(k => q.choices[k]), answer: order.indexOf(q.answer), explain: q.explain };
+  });
   const form = document.createElement("form");
-  form.innerHTML = QUIZ.map((item, i) => `
+  form.innerHTML = ITEMS.map((item, i) => `
     <fieldset class="quiz-q" id="q${i}" style="margin-inline:0">
       <legend class="qtext">${i + 1}. ${item.q}</legend>
       ${item.choices.map((c, j) => `
@@ -88,8 +154,8 @@ function renderQuiz(container, storeKey) {
 
   form.addEventListener("submit", e => {
     e.preventDefault();
-    const missing = QUIZ.map((_, i) => i).filter(i => !form.querySelector(`input[name=q${i}]:checked`));
-    QUIZ.forEach((_, i) => document.getElementById("q" + i).classList.toggle("missing", missing.includes(i)));
+    const missing = ITEMS.map((_, i) => i).filter(i => !form.querySelector(`input[name=q${i}]:checked`));
+    ITEMS.forEach((_, i) => document.getElementById("q" + i).classList.toggle("missing", missing.includes(i)));
     if (missing.length) {
       msg.textContent = `ยังไม่ได้ตอบข้อ ${missing.map(i => i + 1).join(", ")}`;
       document.getElementById("q" + missing[0]).scrollIntoView({ behavior: "smooth", block: "center" });
@@ -97,7 +163,7 @@ function renderQuiz(container, storeKey) {
     }
     msg.textContent = "";
     let score = 0;
-    QUIZ.forEach((item, i) => {
+    ITEMS.forEach((item, i) => {
       const box = document.getElementById("q" + i);
       const chosen = Number(form.querySelector(`input[name=q${i}]:checked`).value);
       const ok = chosen === item.answer;
@@ -109,7 +175,7 @@ function renderQuiz(container, storeKey) {
     });
     storeSet("ayt-score-" + storeKey, score);
 
-    const pct = Math.round(score / QUIZ.length * 100);
+    const pct = Math.round(score / ITEMS.length * 100);
     const pass = pct >= 70;
     let compare = "";
     if (storeKey === "post") {
@@ -123,7 +189,7 @@ function renderQuiz(container, storeKey) {
     result.hidden = false;
     result.innerHTML = `
       <div>คะแนนของคุณ</div>
-      <div class="score">${score} / ${QUIZ.length}</div>
+      <div class="score">${score} / ${ITEMS.length}</div>
       <p>${storeKey === "pre"
         ? "ไม่ต้องกังวลกับคะแนนก่อนเรียน มาเริ่มเรียนกันเลย!"
         : (pass ? "ผ่านเกณฑ์ร้อยละ 70 เยี่ยมมาก!" : "ยังไม่ผ่านเกณฑ์ร้อยละ 70 ลองทบทวนบทเรียนแล้วทำใหม่อีกครั้ง")}</p>

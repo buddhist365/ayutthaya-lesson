@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>แบบประเมินความพึงพอใจ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600&family=Chonburi&family=IBM+Plex+Sans+Thai+Looped:wght@400;600&family=Pridi:wght@500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <section class="banner">
+    <div class="banner-inner">
+      <span class="eyebrow">หลังเรียน</span>
+      <h1>แบบประเมินความพึงพอใจ</h1>
+      <p class="lead">ให้คะแนนความพึงพอใจต่อสื่อการเรียนรู้นี้ 5 ระดับ ใช้เวลาประมาณ 3 นาที</p>
+    </div>
+  </section>
+
+  <main>
+
+    <div class="card">
+      <p style="margin-top:0"><b>ระดับคะแนน</b> 5 = มากที่สุด · 4 = มาก · 3 = ปานกลาง · 2 = น้อย · 1 = น้อยที่สุด</p>
+      <form id="survey" class="survey" novalidate></form>
+    </div>
+    <div id="survey-result" class="survey-result" hidden aria-live="polite"></div>
+  </main>
+
+  <nav id="pager"></nav>
+  <footer id="site-footer"></footer>
+  <script src="main.js"></script>
+  <script src="survey.js"></script>
+</body>
+</html>

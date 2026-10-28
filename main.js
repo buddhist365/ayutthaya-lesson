@@ -5,6 +5,7 @@
 
 const PAGES = [
   { file: "index.html",      title: "หน้าแรก" },
+  { file: "guide.html",      title: "คู่มือการใช้สื่อ" },
   { file: "intro.html",      title: "บทนำและจุดประสงค์" },
   { file: "pretest.html",    title: "แบบทดสอบก่อนเรียน" },
   { file: "lesson1.html",    title: "บริเวณนี้ก่อนมีอยุธยา" },
@@ -15,9 +16,11 @@ const PAGES = [
   { file: "media.html",      title: "สื่อวิดีโอ" },
   { file: "activities.html", title: "กิจกรรมเชิงโต้ตอบ" },
   { file: "posttest.html",   title: "แบบทดสอบหลังเรียน" },
+  { file: "survey.html",     title: "แบบประเมินความพึงพอใจ" },
   { file: "resources.html",  title: "แหล่งเรียนรู้เพิ่มเติม" },
   { file: "blog.html",       title: "บล็อก" },
-  { file: "teacher.html",    title: "สำหรับครู" }
+  { file: "teacher.html",    title: "สำหรับครู" },
+  { file: "about.html",      title: "ผู้จัดทำ" }
 ];
 
 /* อ่าน/เขียน localStorage อย่างปลอดภัย (บางเบราว์เซอร์ปิดไว้) */
@@ -32,7 +35,9 @@ function storeSet(key, value) {
 }
 
 /* เลขอารบิก → เลขไทย */
-function thaiNum(n) { return String(n).replace(/\d/g, d => "๐๑๒๓๔๕๖๗๘๙"[d]); }
+/* ใช้เลขอารบิกทั้งเว็บ (ถ้าต้องการเลขไทย เปลี่ยน USE_THAI_DIGITS เป็น true) */
+const USE_THAI_DIGITS = false;
+function thaiNum(n) { return USE_THAI_DIGITS ? String(n).replace(/\d/g, d => "๐๑๒๓๔๕๖๗๘๙"[d]) : String(n); }
 
 /* โลโก้: ดอกประจำยามสีทอง */
 const BRAND_MARK = `<svg width="30" height="30" viewBox="0 0 56 56" aria-hidden="true">
@@ -109,7 +114,7 @@ const BRAND_MARK = `<svg width="30" height="30" viewBox="0 0 56 56" aria-hidden=
     const p = document.createElement("p");
     p.className = "hero-progress";
     p.innerHTML = done === 0
-      ? "เริ่มจากบทที่ ๑ ได้เลย ระบบจะติดป้ายบทที่เรียนแล้วให้อัตโนมัติ"
+      ? "เริ่มจากบทที่ 1 ได้เลย ระบบจะติดป้ายบทที่เรียนแล้วให้อัตโนมัติ"
       : `เรียนแล้ว <b>${thaiNum(done)} จาก ${thaiNum(chapterLinks.length)} บท</b>${done === chapterLinks.length ? " ครบแล้ว ไปทำแบบทดสอบหลังเรียนกัน!" : ""}`;
     document.querySelector(".chapters").before(p);
   }
