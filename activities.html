@@ -20,14 +20,20 @@
     <div class="banner-inner">
         <span class="eyebrow">กิจกรรม</span>
         <h1>กิจกรรมเชิงโต้ตอบ</h1>
-        <p class="lead">ทำกิจกรรมทั้ง 4 ข้อ เพื่อทบทวนสิ่งที่เรียนมา</p>
+        <p class="lead">กิจกรรม 9 แบบ ทั้งแผนที่ เรียงเหตุการณ์ ถูกผิด บัตรคำ เติมคำ จัดกลุ่ม และเกมจับคู่ ทำข้อไหนก่อนก็ได้</p>
     </div>
   </section>
 
   <main>
+    <section class="act-progress" aria-label="ความคืบหน้ากิจกรรม">
+      <div class="act-progress-top"><b>ทำสำเร็จแล้ว <span id="act-count">๐</span> จาก ๙ กิจกรรม</b><span class="act-track"><span id="act-bar"></span></span></div>
+      <nav id="act-nav" class="act-nav"><a href="#act-1" data-n="1"><span>๑</span>ระบุแม่น้ำ</a><a href="#act-2" data-n="2"><span>๒</span>เรียงเหตุการณ์</a><a href="#act-3" data-n="3"><span>๓</span>เลือกทำเล</a><a href="#act-4" data-n="4"><span>๔</span>นักสืบหลักฐาน</a><a href="#act-5" data-n="5"><span>๕</span>ถูกหรือผิด</a><a href="#act-6" data-n="6"><span>๖</span>บัตรคำศัพท์</a><a href="#act-7" data-n="7"><span>๗</span>เติมคำ</a><a href="#act-8" data-n="8"><span>๘</span>จัดกลุ่มปัจจัย</a><a href="#act-9" data-n="9"><span>๙</span>จับคู่ความจำ</a></nav>
+      <p id="act-all" class="act-all" hidden>ทำครบทุกกิจกรรมแล้ว เก่งมาก! ไปทำ <a href="posttest.html">แบบทดสอบหลังเรียน</a> ได้เลย</p>
+    </section>
+
 
     <!-- กิจกรรมที่ 1 -->
-    <section class="card">
+    <section class="card act" id="act-1">
       <h2 style="margin-top:0">กิจกรรมที่ 1 · ระบุชื่อแม่น้ำ</h2>
       <p>แม่น้ำที่มีตัวอักษร ก ข ค กำกับ คือแม่น้ำสายใด</p>
       <svg class="map" viewBox="0 0 400 300" role="img" aria-label="แผนผังเกาะเมืองอยุธยา แม่น้ำมีป้าย ก ข ค">
@@ -50,7 +56,7 @@
     </section>
 
     <!-- กิจกรรมที่ 2 -->
-    <section class="card">
+    <section class="card act" id="act-2">
       <h2 style="margin-top:0">กิจกรรมที่ 2 · เรียงลำดับเหตุการณ์</h2>
       <p>ใช้ปุ่ม ▲ ▼ เรียงเหตุการณ์จาก<strong>เก่าที่สุด (บน)</strong> ไป<strong>ใหม่ที่สุด (ล่าง)</strong></p>
       <ul class="sortable" id="sortable"></ul>
@@ -59,7 +65,7 @@
     </section>
 
     <!-- กิจกรรมที่ 3 -->
-    <section class="card">
+    <section class="card act" id="act-3">
       <h2 style="margin-top:0">กิจกรรมที่ 3 · ถ้าฉันเป็นพระเจ้าอู่ทอง</h2>
       <p>นักเรียนต้องเลือกที่ตั้งราชธานีใหม่ในพุทธศตวรรษที่ 19 จะเลือกทำเลใด</p>
       <div class="choices" id="site-choices">
@@ -73,7 +79,7 @@
     </section>
 
     <!-- กิจกรรมที่ 4 -->
-    <section class="card">
+    <section class="card act" id="act-4">
       <h2 style="margin-top:0">กิจกรรมที่ 4 · นักสืบประวัติศาสตร์</h2>
       <p>หลักฐานแต่ละข้อสนับสนุนแนวคิดใดเกี่ยวกับที่มาของพระเจ้าอู่ทอง</p>
       <div class="table-wrap">
@@ -84,6 +90,51 @@
       </div>
       <p><button class="btn" id="check-evidence">ตรวจคำตอบ</button></p>
       <div class="feedback" id="fb-evidence" aria-live="polite"></div>
+    </section>
+
+    <!-- กิจกรรมที่ 5 -->
+    <section class="card act" id="act-5">
+      <h2 style="margin-top:0">กิจกรรมที่ 5 · ถูกหรือผิด</h2>
+      <p>อ่านข้อความแล้วกด <b>ถูก</b> หรือ <b>ผิด</b> ระบบจะเฉลยทันที</p>
+      <ol class="tf-list" id="tf-list"></ol>
+      <div class="feedback" id="fb-tf" aria-live="polite"></div>
+    </section>
+
+    <!-- กิจกรรมที่ 6 -->
+    <section class="card act" id="act-6">
+      <h2 style="margin-top:0">กิจกรรมที่ 6 · บัตรคำศัพท์</h2>
+      <p>ลองทายความหมายในใจก่อน แล้วกดที่บัตรเพื่อพลิกดูเฉลย <small id="fc-count" class="muted"></small></p>
+      <div class="flashcards" id="flashcards"></div>
+      <div class="feedback" id="fb-fc" aria-live="polite"></div>
+    </section>
+
+    <!-- กิจกรรมที่ 7 -->
+    <section class="card act" id="act-7">
+      <h2 style="margin-top:0">กิจกรรมที่ 7 · เติมคำในช่องว่าง</h2>
+      <p>กดคำจากคลังคำด้านล่างเพื่อเติมลงช่องที่กำลังเลือก (ช่องสีทอง) กดที่ช่องอีกครั้งเพื่อลบคำ</p>
+      <p class="fill-text" id="fill-text"></p>
+      <div class="word-bank" id="fill-bank" aria-label="คลังคำ"></div>
+      <p><button class="btn" id="check-fill">ตรวจคำตอบ</button></p>
+      <div class="feedback" id="fb-fill" aria-live="polite"></div>
+    </section>
+
+    <!-- กิจกรรมที่ 8 -->
+    <section class="card act" id="act-8">
+      <h2 style="margin-top:0">กิจกรรมที่ 8 · จัดกลุ่มปัจจัยการสถาปนา</h2>
+      <p>กดเลือกบัตรข้อความ แล้วกดปุ่มกลุ่มที่ถูกต้อง</p>
+      <div class="sort-pool" id="sort-pool"></div>
+      <div class="sort-bins" id="sort-bins"></div>
+      <p><button class="btn" id="check-sort">ตรวจคำตอบ</button></p>
+      <div class="feedback" id="fb-sort" aria-live="polite"></div>
+    </section>
+
+    <!-- กิจกรรมที่ 9 -->
+    <section class="card act" id="act-9">
+      <h2 style="margin-top:0">กิจกรรมที่ 9 · เกมจับคู่ความจำ</h2>
+      <p id="mem-status" class="muted" aria-live="polite"></p>
+      <div class="memory" id="memory"></div>
+      <p><button class="btn ghost" id="mem-reset" type="button">สับบัตรใหม่</button></p>
+      <div class="feedback" id="fb-mem" aria-live="polite"></div>
     </section>
   </main>
 
@@ -175,5 +226,6 @@
         : `ถูก ${correct} จาก ${EVIDENCE.length} ข้อ ทบทวนได้ที่<a href="lesson3.html">บทที่ 3</a>`);
     });
   </script>
+  <script src="activities2.js"></script>
 </body>
 </html>

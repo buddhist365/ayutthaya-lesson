@@ -114,6 +114,15 @@ const BRAND_MARK = `<svg width="30" height="30" viewBox="0 0 56 56" aria-hidden=
     document.querySelector(".chapters").before(p);
   }
 
+  // แยกประเภทกล่องข้อความตามหัวข้อ (ไอคอนและลวดลายต่างกัน)
+  document.querySelectorAll(".callout").forEach(c => {
+    const t = (c.querySelector("strong")?.textContent || "");
+    if (/รู้หรือไม่/.test(t)) c.classList.add("is-know");
+    else if (/หลักฐาน/.test(t)) c.classList.add("is-evidence");
+    else if (/คำถาม|คิด/.test(t)) c.classList.add("is-think");
+    else c.classList.add("is-howto");
+  });
+
   // การ์ดที่กดเปิดดูได้ (ใช้ในบทที่ 3)
   document.querySelectorAll(".reveal-card [data-toggle]").forEach(b => {
     b.addEventListener("click", () => {
