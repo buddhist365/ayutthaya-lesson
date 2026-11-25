@@ -148,3 +148,126 @@ const BRAND_MARK = `<svg width="30" height="30" viewBox="0 0 56 56" aria-hidden=
     }));
   });
 })();
+
+/* =========================================================
+   ลูกเล่นเพิ่มเติม: แถบเครื่องมือลอย (ธีมมืด/สว่าง ขนาดตัวอักษร ฟังบทเรียน กลับขึ้นบน)
+   เรียนต่อจากที่ค้างไว้ · ปุ่มลูกศรเปลี่ยนหน้า · ตัวเลขนับขึ้น
+   ========================================================= */
+(function () {
+  const root = document.documentElement;
+  const page = decodeURIComponent(location.pathname.split("/").pop()) || "index.html";
+  const idx = PAGES.findIndex(p => p.file === page);
+
+  // ธีมและขนาดตัวอักษรที่เลือกไว้
+  const savedTheme = storeGet("ayt-theme", null);
+  if (savedTheme) root.setAttribute("data-theme", savedTheme);
+  const sizes = [15, 17, 19, 21];
+  let sizeIdx = storeGet("ayt-size", 1);
+  const applySize = () => { document.body.style.fontSize = sizes[sizeIdx] + "px"; };
+  applySize();
+
+  // จำบทที่เรียนล่าสุด
+  if (/^(lesson\d|activities|pretest|posttest)\.html$/.test(page)) storeSet("ayt-last", page);
+
+  const ICON = {
+    moon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>',
+    sun: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+    speak: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>',
+    stop: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>',
+    up: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>'
+  };
+  const isDark = () => root.getAttribute("data-theme") === "dark" ||
+    (!root.getAttribute("data-theme") && matchMedia("(prefers-color-scheme: dark)").matches);
+
+  const dock = document.createElement("div");
+  dock.className = "dock";
+  dock.setAttribute("role", "toolbar");
+  dock.setAttribute("aria-label", "เครื่องมือ");
+  const canSpeak = "speechSynthesis" in window && document.querySelector("main") && /^(lesson\d|intro|guide)\.html$/.test(page);
+  dock.innerHTML = `
+    <button type="button" data-act="theme" title="สลับโหมดมืด/สว่าง"></button>
+    <button type="button" data-act="smaller" title="ตัวอักษรเล็กลง" class="txt">ก-</button>
+    <button type="button" data-act="bigger" title="ตัวอักษรใหญ่ขึ้น" class="txt">ก+</button>
+    ${canSpeak ? `<button type="button" data-act="speak" title="ฟังบทเรียน">${ICON.speak}</button>` : ""}
+    <button type="button" data-act="top" title="กลับขึ้นบนสุด" class="to-top">${ICON.up}</button>`;
+  document.body.appendChild(dock);
+  const themeBtn = dock.querySelector('[data-act="theme"]');
+  const drawTheme = () => { themeBtn.innerHTML = isDark() ? ICON.sun : ICON.moon; themeBtn.setAttribute("aria-label", isDark() ? "เปลี่ยนเป็นโหมดสว่าง" : "เปลี่ยนเป็นโหมดมืด"); };
+  drawTheme();
+  dock.querySelectorAll("button").forEach(b => { if (!b.getAttribute("aria-label")) b.setAttribute("aria-label", b.title); });
+
+  let speaking = false;
+  function stopSpeak() { speechSynthesis.cancel(); speaking = false; const b = dock.querySelector('[data-act="speak"]'); if (b) { b.innerHTML = ICON.speak; b.classList.remove("on"); } }
+  dock.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    const act = b.dataset.act;
+    if (act === "theme") {
+      const next = isDark() ? "light" : "dark";
+      const go = () => { root.setAttribute("data-theme", next); storeSet("ayt-theme", next); drawTheme(); };
+      document.startViewTransition ? document.startViewTransition(go) : go();
+    } else if (act === "smaller" || act === "bigger") {
+      sizeIdx = Math.max(0, Math.min(sizes.length - 1, sizeIdx + (act === "bigger" ? 1 : -1)));
+      storeSet("ayt-size", sizeIdx); applySize();
+    } else if (act === "top") {
+      scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    } else if (act === "speak") {
+      if (speaking) { stopSpeak(); return; }
+      const main = document.querySelector("main").cloneNode(true);
+      main.querySelectorAll("script, svg, button, .video, details:not([open]) > p, .act-progress").forEach(n => n.remove());
+      const text = main.innerText.replace(/\s+/g, " ").trim();
+      const chunks = text.match(/.{1,180}(\s|$)/g) || [text];
+      speechSynthesis.cancel();
+      const th = speechSynthesis.getVoices().find(v => /^th/i.test(v.lang));
+      chunks.forEach((c, i) => {
+        const u = new SpeechSynthesisUtterance(c);
+        u.lang = "th-TH"; if (th) u.voice = th; u.rate = 0.95;
+        if (i === chunks.length - 1) u.onend = stopSpeak;
+        speechSynthesis.speak(u);
+      });
+      speaking = true; b.innerHTML = ICON.stop; b.classList.add("on"); b.setAttribute("aria-label", "หยุดอ่าน");
+    }
+  });
+  addEventListener("pagehide", () => { if (speaking) speechSynthesis.cancel(); });
+
+  // ปุ่มกลับขึ้นบน แสดงเมื่อเลื่อนลงมา
+  const onScroll = () => dock.classList.toggle("scrolled", scrollY > 500);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  // ปุ่มลูกศร ← → เปลี่ยนหน้า
+  addEventListener("keydown", e => {
+    if (e.altKey || e.ctrlKey || e.metaKey || /input|textarea|select/i.test(e.target.tagName) || e.target.isContentEditable) return;
+    if (e.key === "ArrowRight" && PAGES[idx + 1]) location.href = PAGES[idx + 1].file;
+    if (e.key === "ArrowLeft" && idx > 0) location.href = PAGES[idx - 1].file;
+  });
+
+  // หน้าแรก: ปุ่มเรียนต่อจากที่ค้างไว้
+  const last = storeGet("ayt-last", null);
+  const actions = document.querySelector(".welcome .actions, .hero .actions");
+  if (actions && last) {
+    const p = PAGES.find(x => x.file === last);
+    if (p) {
+      const a = document.createElement("a");
+      a.className = "btn resume"; a.href = p.file;
+      a.innerHTML = `<small>เรียนต่อจากที่ค้างไว้</small>${p.title} →`;
+      actions.prepend(a);
+    }
+  }
+
+  // ตัวเลขในกล่องตัวเลขเด่น นับขึ้นเมื่อเลื่อนมาเห็น
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+    const els = [...document.querySelectorAll(".keyfact b")].filter(b => /\d/.test(b.textContent));
+    const io = new IntersectionObserver(entries => entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      io.unobserve(en.target);
+      const el = en.target, final = el.textContent, m = final.match(/\d+/);
+      const target = +m[0], start = performance.now(), dur = 1100, from = target > 1000 ? target - 120 : 0;
+      const tick = t => {
+        const k = Math.min(1, (t - start) / dur), v = Math.round(from + (target - from) * (1 - Math.pow(1 - k, 3)));
+        el.textContent = final.replace(m[0], v);
+        if (k < 1) requestAnimationFrame(tick); else el.textContent = final;
+      };
+      requestAnimationFrame(tick);
+    }), { threshold: 0.6 });
+    els.forEach(b => io.observe(b));
+  }
+})();

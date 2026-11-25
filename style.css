@@ -1148,3 +1148,88 @@ h3 { color: var(--cinnabar); }
 .profile-name::before, .profile-name::after { display: none; }
 .profile-school { margin: 2px 0 0; color: var(--muted); font: 500 1.05rem var(--font-label); }
 .table-wrap th[scope], tbody th { width: 34%; }
+
+/* =========================================================
+   v3 ลูกเล่นทันสมัย: เปลี่ยนหน้าแบบลื่นไหล · แถบอ่าน · เผยเนื้อหาตามการเลื่อน · แถบเครื่องมือลอย
+   ========================================================= */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .35s; }
+@media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
+
+/* แถบความคืบหน้าการอ่าน (เลื่อนหน้า) */
+@supports (animation-timeline: scroll()) {
+  body::after {
+    content: ""; position: fixed; left: 0; right: 0; top: 0; height: 3px; z-index: 40; pointer-events: none;
+    background: linear-gradient(90deg, var(--leaf), var(--cinnabar));
+    transform-origin: 0 50%; transform: scaleX(0);
+    animation: readbar linear both; animation-timeline: scroll(root);
+  }
+  @keyframes readbar { to { transform: scaleX(1); } }
+}
+
+/* เนื้อหาค่อย ๆ เผยขึ้นเมื่อเลื่อนมาถึง (เฉพาะเบราว์เซอร์ที่รองรับ ไม่ซ่อนเนื้อหาไว้ก่อน) */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    main .card, main .callout, main .goals, main .vocab, main .summary, main .timeline li,
+    main .keyfact > div, main .chapters li, main .blog-card, main .video-item, main .quiz-q, main .steps li {
+      animation: rise-in linear both; animation-timeline: view(); animation-range: entry 0% entry 45%;
+    }
+    @keyframes rise-in { from { opacity: .35; transform: translateY(24px) scale(.985); } to { opacity: 1; transform: none; } }
+  }
+}
+
+/* การ์ดเรืองแสงทองตามเมาส์ */
+@media (hover: hover) {
+  .grid .card:hover, .chapters a:hover, .blog-card:hover {
+    box-shadow: var(--shadow-lift), 0 0 0 1px color-mix(in srgb, var(--leaf) 60%, transparent), 0 10px 40px -12px color-mix(in srgb, var(--leaf) 70%, transparent);
+  }
+}
+
+/* แถบเครื่องมือลอย */
+.dock {
+  position: fixed; z-index: 30; display: flex; flex-direction: column; gap: 6px; padding: 6px; border-radius: 16px;
+  right: max(12px, env(safe-area-inset-right, 0px)); bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  background: var(--head-bg); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border: 1px solid color-mix(in srgb, var(--gold) 30%, var(--line)); box-shadow: var(--shadow-lift);
+}
+.dock button {
+  width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; border: 0; cursor: pointer;
+  background: transparent; color: var(--ink); transition: background .15s, transform .15s;
+}
+.dock button:hover { background: var(--gold-soft); transform: translateY(-1px); }
+.dock button.on { background: var(--cinnabar); color: #fff; }
+.dock svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.dock .txt { font: 600 .9rem var(--font-label); }
+.dock .to-top { display: none; }
+.dock.scrolled .to-top { display: grid; }
+@media (max-width: 560px) {
+  .dock { flex-direction: row; left: 50%; right: auto; translate: -50% 0; border-radius: 999px; padding: 4px 6px; }
+  .dock button { width: 38px; height: 38px; border-radius: 999px; }
+  .pager { padding-bottom: 84px; }
+}
+@media print { .dock { display: none !important; } }
+
+/* ปุ่มเรียนต่อ */
+.btn.resume { display: inline-flex; flex-direction: column; align-items: flex-start; line-height: 1.3; padding: 8px 22px; background: var(--ok); box-shadow: 0 3px 0 color-mix(in srgb, var(--ok) 60%, #000); }
+.btn.resume small { font: 500 .72rem var(--font-label); opacity: .9; }
+
+/* วิดีโอ: ภาพปกจริงจาก YouTube */
+.video-poster.has-thumb { padding: 0; isolation: isolate; }
+.video-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .5s; }
+.video-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(29,18,16,.15) 20%, rgba(29,18,16,.85)); }
+.video-poster.has-thumb:hover .video-thumb { transform: scale(1.04); }
+.video-poster.has-thumb .video-label { position: absolute; top: 14px; left: 16px; background: rgba(29,18,16,.6); padding: 2px 12px; border-radius: 999px; color: #f3d27a; }
+.video-poster.has-thumb b { position: absolute; left: 18px; right: 18px; bottom: 30px; text-align: left; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,.6); max-width: none; }
+.video-poster.has-thumb small { position: absolute; left: 18px; bottom: 10px; color: #f1e6d2; }
+.video-poster.has-thumb::before { border-color: rgba(243,210,122,.45); }
+.video-seen { color: #9be3b4; }
+.video-play svg { filter: drop-shadow(0 4px 14px rgba(0,0,0,.5)); }
+@media (prefers-reduced-motion: no-preference) {
+  .video-poster.has-thumb .video-play svg { animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse { 50% { transform: scale(1.07); } }
+}
+.video-credit { display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: baseline; padding: 8px 12px; margin-top: 10px; border-radius: 10px; background: var(--gold-soft); color: var(--ink); line-height: 1.6; }
+.thanks-card { padding: 14px 18px; border-radius: 12px; margin-bottom: 14px; background: var(--know-soft); border: 1px solid color-mix(in srgb, var(--know) 40%, transparent); }
+.thanks-card p { margin: 0; max-width: none; }
+.video-item .video-empty b { display: block; }
+.thanks-mark { width: 18px; height: 18px; flex: none; align-self: center; background: var(--orn-prajam) center / contain no-repeat; }
