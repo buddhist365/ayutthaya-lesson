@@ -111,7 +111,7 @@ const BRAND_MARK = `<svg width="30" height="30" viewBox="0 0 56 56" aria-hidden=
   if (footer) {
     footer.innerHTML = `
       <div class="footer-banner">
-        <img src="banner-footer.jpg" srcset="banner-footer-sm.jpg 960w, banner-footer.jpg 1920w" sizes="(min-width: 1100px) 1100px, 100vw" width="1920" height="640" loading="lazy"
+        <img src="banner-footer.jpg" srcset="banner-footer-sm.jpg 960w, banner-footer.jpg 1920w" sizes="100vw" width="1920" height="640" loading="lazy"
           alt="สอนโดย พระมหาเจตพล วระวิชา โรงเรียนมังกรกมลาวาสวิทยาลัย · สื่อการเรียนรู้ประวัติศาสตร์ ชั้นมัธยมศึกษาปีที่ 2 เรื่อง การสถาปนาอาณาจักรอยุธยา">
         <a class="footer-credit-hit" href="media.html#credits" aria-label="เครดิตสื่อ"></a>
       </div>`;

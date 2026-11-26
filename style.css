@@ -1335,3 +1335,9 @@ footer::before { display: none; }
 .footer-banner img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; }
 .footer-credit-hit { position: absolute; left: 83.5%; top: 81%; width: 14.5%; height: 13%; border-radius: 999px; }
 .footer-credit-hit:hover, .footer-credit-hit:focus-visible { box-shadow: 0 0 0 3px var(--cinnabar); }
+
+/* ส่วนท้าย: ภาพ "สอนโดย" เต็มความกว้างหน้า */
+footer { padding: 0; margin-top: 32px; }
+.footer-banner { max-width: none; border-radius: 0; box-shadow: none; }
+.footer-credit-hit { left: 86%; top: 80%; width: 11.5%; height: 12%; }
+@media (max-width: 560px) { footer { padding-bottom: 64px; background: #f28a1e; } }
