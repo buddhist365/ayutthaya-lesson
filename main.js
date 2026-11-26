@@ -110,15 +110,11 @@ const BRAND_MARK = `<svg width="30" height="30" viewBox="0 0 56 56" aria-hidden=
   const footer = document.getElementById("site-footer");
   if (footer) {
     footer.innerHTML = `
-      <div class="footer-teacher">
-        ${BRAND_MARK}
-        <div>
-          <span class="footer-label">สอนโดย</span>
-          <b>พระมหาเจตพล วระวิชา</b>
-          <span class="footer-school">โรงเรียนมังกรกมลาวาสวิทยาลัย</span>
-        </div>
-      </div>
-      <p class="footer-meta">สื่อการเรียนรู้ประวัติศาสตร์ ชั้นมัธยมศึกษาปีที่ 2 · เรื่อง การสถาปนาอาณาจักรอยุธยา · <a href="media.html#credits">เครดิตสื่อ</a></p>`;
+      <div class="footer-banner">
+        <img src="banner-footer.jpg" srcset="banner-footer-sm.jpg 960w, banner-footer.jpg 1920w" sizes="(min-width: 1100px) 1100px, 100vw" width="1920" height="640" loading="lazy"
+          alt="สอนโดย พระมหาเจตพล วระวิชา โรงเรียนมังกรกมลาวาสวิทยาลัย · สื่อการเรียนรู้ประวัติศาสตร์ ชั้นมัธยมศึกษาปีที่ 2 เรื่อง การสถาปนาอาณาจักรอยุธยา">
+        <a class="footer-credit-hit" href="media.html#credits" aria-label="เครดิตสื่อ"></a>
+      </div>`;
   }
 
   // หน้าแรก: ติดป้าย "เรียนแล้ว" ที่บทที่เปิดแล้ว และสรุปความคืบหน้า
