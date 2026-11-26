@@ -66,17 +66,34 @@ const BRAND_MARK = `<svg width="30" height="30" viewBox="0 0 56 56" aria-hidden=
     const pct = Math.round((idx / (PAGES.length - 1)) * 100);
     header.innerHTML = `
       <div class="bar">
+        <button class="menu-btn" aria-expanded="false" aria-controls="menu-panel">
+          <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span><span>สารบัญ</span>
+        </button>
         <a class="brand" href="index.html">${BRAND_MARK}<span>การสถาปนาอาณาจักรอยุธยา</span></a>
-        <button class="menu-btn" aria-expanded="false" aria-controls="menu-panel">สารบัญ</button>
+        <span class="head-pct" title="ความคืบหน้าในบทเรียน">${pct}%</span>
       </div>
-      <nav class="menu-panel" id="menu-panel" aria-label="สารบัญ"><ol>${items}</ol></nav>
+      <div class="menu-backdrop" hidden></div>
+      <nav class="menu-panel" id="menu-panel" aria-label="สารบัญ">
+        <div class="menu-head"><b>สารบัญบทเรียน</b><button type="button" class="menu-close" aria-label="ปิดสารบัญ">✕</button></div>
+        <ol>${items}</ol>
+      </nav>
       <div class="progress" title="ความคืบหน้า ${pct}%"><span style="width:${pct}%"></span></div>`;
     const btn = header.querySelector(".menu-btn");
     const panel = header.querySelector(".menu-panel");
-    btn.addEventListener("click", () => {
-      const open = panel.classList.toggle("open");
+    const backdrop = header.querySelector(".menu-backdrop");
+    // ย้ายลิ้นชักไปไว้ใต้ body เพื่อให้ลอยเต็มจอ (ส่วนหัวมีเอฟเฟกต์เบลอที่จำกัดตำแหน่ง)
+    document.body.append(backdrop, panel);
+    const setOpen = open => {
+      panel.classList.toggle("open", open);
+      backdrop.hidden = !open;
       btn.setAttribute("aria-expanded", open);
-    });
+      document.body.classList.toggle("menu-open", open);
+      if (open) panel.querySelector("a.current, a")?.focus(); else btn.focus();
+    };
+    btn.addEventListener("click", () => setOpen(!panel.classList.contains("open")));
+    backdrop.addEventListener("click", () => setOpen(false));
+    panel.querySelector(".menu-close").addEventListener("click", () => setOpen(false));
+    addEventListener("keydown", e => { if (e.key === "Escape" && panel.classList.contains("open")) setOpen(false); });
   }
 
   // ปุ่มก่อนหน้า / ถัดไป

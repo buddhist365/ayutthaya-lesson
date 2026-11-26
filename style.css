@@ -1233,3 +1233,92 @@ h3 { color: var(--cinnabar); }
 .thanks-card p { margin: 0; max-width: none; }
 .video-item .video-empty b { display: block; }
 .thanks-mark { width: 18px; height: 18px; flex: none; align-self: center; background: var(--orn-prajam) center / contain no-repeat; }
+
+
+/* =========================================================
+   v4: ส่วนหัวใหม่ (สารบัญซ้าย · ชื่อกลาง) · โหมดมืดสว่างขึ้น · พื้นหลังลายประวัติศาสตร์ทุกหน้า
+   ========================================================= */
+
+/* โหมดมืดโทนน้ำตาลอุ่น สว่างขึ้น อ่านง่าย */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #33251c; --surface: #413026; --surface-2: #4b382c; --ink: #f7ecdc; --muted: #d6c2a8; --line: #66503f;
+    --gold: #f0c66a; --gold-soft: #57432a; --cinnabar: #ff9a6b; --cinnabar-soft: #5a3528; --leaf: #f0bf5a;
+    --lacquer: #8a4a1f; --lacquer-2: #b8682e; --band-a: #4a3423; --band-b: #6b4526; --band-ink: #fbefdc; --band-sub: #e8d2b0;
+    --head-bg: rgba(58, 42, 32, .92); --palm: #4d3b26; --palm-ink: #f7e8c8; --palm-edge: #8f7040;
+    --ok: #8fdcaf; --ok-soft: #2c4a39; --bad: #ff9f94; --bad-soft: #5a2f2a; --water: #8cc0ea; --water-soft: #2d4152; --land: #4f3d2c;
+    --know: #86d8c0; --know-soft: #284840; --think: #c9b2f0; --think-soft: #3d3352;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #33251c; --surface: #413026; --surface-2: #4b382c; --ink: #f7ecdc; --muted: #d6c2a8; --line: #66503f;
+  --gold: #f0c66a; --gold-soft: #57432a; --cinnabar: #ff9a6b; --cinnabar-soft: #5a3528; --leaf: #f0bf5a;
+  --lacquer: #8a4a1f; --lacquer-2: #b8682e; --band-a: #4a3423; --band-b: #6b4526; --band-ink: #fbefdc; --band-sub: #e8d2b0;
+  --head-bg: rgba(58, 42, 32, .92); --palm: #4d3b26; --palm-ink: #f7e8c8; --palm-edge: #8f7040;
+  --ok: #8fdcaf; --ok-soft: #2c4a39; --bad: #ff9f94; --bad-soft: #5a2f2a; --water: #8cc0ea; --water-soft: #2d4152; --land: #4f3d2c;
+  --know: #86d8c0; --know-soft: #284840; --think: #c9b2f0; --think-soft: #3d3352;
+}
+
+/* พื้นหลังทุกหน้า: ลายประจำยามจาง ๆ + เงาวัดกรุงเก่าด้านล่าง + แสงอุ่น */
+body {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='90' viewBox='0 0 600 90'%3E%3Cpath fill='%23b8742a' fill-opacity='.11' d='M10.0 90 V78.1 L7.0 75.7 L20.8 71.3 L17.2 69.6 L40 56 L62.8 69.6 L59.2 71.3 L73.0 75.7 L70.0 78.1 V90 Z M83.8 90 L84.4 50 L85.6 50 L86.2 90 Z M85 50 q-9 -2 -14 6 q7 -6 14 -6 q-6 -6 -14 -4 q8 -2 14 4 q2 -8 -4 -12 q6 4 4 12 q6 -7 14 -6 q-8 1 -14 6 q8 -2 14 5 q-7 -5 -14 -5 Z M107.0 90 V77.4 H110.6 C110.6 55.0 124.4 49.4 125.4 45.9 L128.6 20 L130 16 L131.3 20 L134.6 45.9 C135.5 49.4 149.3 55.0 149.3 77.4 H153.0 V90 Z M175.0 90 V61.3 L176.2 61.3 Q175.0 56.7 178.3 52.2 L179.2 52.2 Q178.3 47.7 180.8 43.2 L181.6 43.2 Q180.8 38.7 182.8 34.2 L183.4 34.2 Q182.8 29.7 184.4 25.2 L184.8 25.2 Q184.4 20.7 185.6 16.2 L188.8 8.0 L190 3.0 L191.2 8.0 L194.3 16.2 Q195.5 20.7 195.1 25.2 Q197.1 29.7 196.5 34.2 Q199.1 38.7 198.3 43.2 Q201.7 47.7 200.7 52.2 Q205.0 56.7 203.8 61.3 L205.0 61.3 V90 Z M210.0 90 V76.0 L206.0 73.2 L224.4 68.0 L219.6 66.0 L250 50 L280.4 66.0 L275.6 68.0 L294.0 73.2 L290.0 76.0 V90 Z M294.0 90 V69.0 L294.8 69.0 Q294.0 65.7 296.4 62.4 L297.1 62.4 Q296.4 59.1 298.3 55.8 L298.8 55.8 Q298.3 52.5 299.7 49.1 L300.1 49.1 Q299.7 45.9 300.9 42.5 L301.2 42.5 Q300.9 39.3 301.8 35.9 L303.8 29.9 L305 26.3 L306.2 29.9 L308.1 35.9 Q309.0 39.3 308.7 42.5 Q310.2 45.9 309.8 49.1 Q311.6 52.5 311.1 55.8 Q313.5 59.1 312.8 62.4 Q316.0 65.7 315.1 69.0 L316.0 69.0 V90 Z M333.0 90 V80.6 H335.7 C335.7 64.0 345.9 59.8 346.6 57.2 L348.9 38 L350 34 L351.0 38 L353.4 57.2 C354.0 59.8 364.2 64.0 364.2 80.6 H367.0 V90 Z M388.8 90 L389.4 44 L390.6 44 L391.2 90 Z M390 44 q-9 -2 -14 6 q7 -6 14 -6 q-6 -6 -14 -4 q8 -2 14 4 q2 -8 -4 -12 q6 4 4 12 q6 -7 14 -6 q-8 1 -14 6 q8 -2 14 5 q-7 -5 -14 -5 Z M412.0 90 V79.5 L409.2 77.4 L422.0 73.5 L418.7 72.0 L440 60 L461.2 72.0 L457.9 73.5 L470.8 77.4 L468.0 79.5 V90 Z M480.0 90 V59.2 L481.6 59.2 Q480.0 54.3 484.4 49.5 L485.6 49.5 Q484.4 44.6 487.8 39.8 L488.8 39.8 Q487.8 35.0 490.5 30.1 L491.2 30.1 Q490.5 25.3 492.5 20.4 L493.1 20.4 Q492.5 15.6 494.2 10.8 L498.8 2.0 L500 -3.2 L501.2 2.0 L505.7 10.8 Q507.4 15.6 506.8 20.4 Q509.4 25.3 508.7 30.1 Q512.1 35.0 511.1 39.8 Q515.6 44.6 514.3 49.5 Q520.0 54.3 518.4 59.2 L520.0 59.2 V90 Z M545.0 90 V81.7 H547.4 C547.4 67.0 556.4 63.3 557.0 61.0 L559.1 44 L560 40 L560.9 44 L563.0 61.0 C563.6 63.3 572.6 67.0 572.6 81.7 H575.0 V90 Z M588.8 90 L589.4 56 L590.6 56 L591.2 90 Z M590 56 q-9 -2 -14 6 q7 -6 14 -6 q-6 -6 -14 -4 q8 -2 14 4 q2 -8 -4 -12 q6 4 4 12 q6 -7 14 -6 q-8 1 -14 6 q8 -2 14 5 q-7 -5 -14 -5 Z'/%3E%3C/svg%3E") repeat-x center bottom / 1400px 210px fixed,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cg fill='none' stroke='%23b8862b' stroke-opacity='.10' stroke-width='1.2'%3E%3Cpath d='M42 6 L78 42 L42 78 L6 42 Z'/%3E%3Cpath d='M42 18 C49 28 49 33 42 42 C35 33 35 28 42 18Z M66 42 C56 49 51 49 42 42 C51 35 56 35 66 42Z M42 66 C35 56 35 51 42 42 C49 51 49 56 42 66Z M18 42 C28 35 33 35 42 42 C33 49 28 49 18 42Z'/%3E%3Cpath d='M0 0 L6 6 M84 0 L78 6 M0 84 L6 78 M84 84 L78 78'/%3E%3C/g%3E%3Ccircle cx='42' cy='42' r='2.4' fill='%23b8862b' fill-opacity='.16'/%3E%3C/svg%3E") 0 0 / 84px 84px,
+    radial-gradient(60% 45% at 0% 0%, color-mix(in srgb, var(--leaf) 22%, transparent), transparent 70%),
+    radial-gradient(55% 45% at 100% 100%, color-mix(in srgb, var(--cinnabar) 14%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--paper), var(--surface-2));
+  background-attachment: fixed, scroll, fixed, fixed, fixed;
+  background-color: var(--paper);
+}
+main { position: relative; }
+
+/* ส่วนหัว: สารบัญซ้าย · ชื่อกลาง · ความคืบหน้าขวา */
+.site-header .bar {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 10px;
+  max-width: 1200px; padding-block: 8px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.menu-btn {
+  justify-self: start; display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px 7px 12px;
+  background: var(--cinnabar); color: #fff; border: 0; box-shadow: 0 2px 0 color-mix(in srgb, var(--cinnabar) 60%, #000);
+}
+.menu-btn:hover { background: var(--cinnabar); filter: brightness(1.08); }
+.burger { display: grid; gap: 3px; width: 16px; }
+.burger i { display: block; height: 2px; border-radius: 2px; background: currentColor; }
+.brand { justify-self: center; text-align: center; gap: 10px; font-size: clamp(1rem, 2.6vw, 1.3rem); }
+.brand svg { width: 34px; height: 34px; }
+.brand span:last-child { background: linear-gradient(90deg, var(--band-ink), var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.head-pct {
+  justify-self: end; font: 600 .8rem var(--font-label); color: var(--gold); padding: 3px 12px; border-radius: 999px;
+  background: var(--gold-soft); border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent); font-variant-numeric: tabular-nums;
+}
+@media (max-width: 640px) {
+  .head-pct { display: none; }
+  .site-header .bar { grid-template-columns: auto minmax(0, 1fr) 0; }
+  .menu-btn span:last-child { display: none; }
+  .menu-btn { padding: 9px 11px; }
+  .brand svg { width: 26px; height: 26px; }
+}
+
+/* สารบัญแบบลิ้นชักจากซ้าย */
+.menu-panel {
+  display: flex; flex-direction: column; position: fixed; z-index: 60; top: 0; bottom: 0; left: 0; margin: 0;
+  width: min(360px, 86vw); max-width: none; padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+  background: var(--surface); color: var(--ink); box-shadow: 8px 0 40px rgba(0,0,0,.25);
+  transform: translateX(-102%); visibility: hidden; transition: transform .3s ease, visibility 0s linear .3s;
+}
+.menu-panel.open { display: flex; transform: none; visibility: visible; transition: transform .3s ease; }
+.menu-head {
+  display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; flex: none;
+  background: linear-gradient(115deg, var(--band-a), var(--band-b)); color: var(--band-ink); font-family: var(--font-head); font-size: 1.1rem;
+}
+.menu-close { width: 36px; height: 36px; border-radius: 50%; border: 0; cursor: pointer; background: color-mix(in srgb, var(--surface) 70%, transparent); color: var(--ink); font-size: 1rem; }
+.menu-panel ol { display: block; overflow-y: auto; padding: 10px; flex: 1; }
+.menu-panel a { color: var(--ink); padding: 9px 12px; border-radius: 10px; }
+.menu-panel a:hover { background: var(--gold-soft); }
+.menu-panel a.current { background: var(--cinnabar); color: #fff; }
+.menu-panel a.current .num { color: #fff; }
+.menu-panel .num { color: var(--gold); }
+.menu-backdrop { position: fixed; inset: 0; z-index: 55; background: rgba(20, 12, 8, .45); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
+body.menu-open { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) { .menu-panel, .menu-panel.open { transition: none; } }
